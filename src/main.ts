@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import './index.css'
 import App from './App.vue'
 import Navigo from 'navigo'
+import cardPage from './pages/user/cardPage'
 
 const router = new Navigo('/', { linksSelector: "a" })
 
@@ -10,17 +11,24 @@ export type ComponentBase = {
     afterRender?: () => void
 }
 
-const print = async (component: ComponentBase,param?:any)=>{
-    document.getElementById('app')?.innerHTML = await component.render()
+const print = async (component: ComponentBase, param?: any) => {
+    const element = document.getElementById('app')
+    if (element) {
+        element.innerHTML = await component.render()
+    }
+
     if (component.afterRender) {
-        component.afterRender()
+       component.afterRender()
     }
 }
 
 router.on({
     "/": () => {
         // print(HomePage)
-    }
+    },
+    "/card": () => {
+        print(cardPage)
+    },
 })
 router.resolve();
-createApp(App).mount('#app')
+
