@@ -1,4 +1,4 @@
-import Header from "./header"
+import Header from "../../component/header"
 const cardPage = {
     render: async () => {
         return /*html*/`
