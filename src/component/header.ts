@@ -1,6 +1,6 @@
 const Header = {
-    render: () => {
-        return /*html*/`
+  render: () => {
+    return /*html*/`
         <!-- header begin -->
         <div class="h-[64px] bg-[#D70018]">
             <div class="container mx-auto flex justify-start">
@@ -11,7 +11,7 @@ const Header = {
                 <input type="text" class="w-[533px] h-[34px] rounded-md" name="" id="">
               </form>
               <div class="text-white flex">
-                <a class="my-2 mx-6" href="#">Gọi mua hàng<br> 1800.2097</a>
+                <a class="my-2 mx-6" href="#">Gọi mua hàng<br>1800.2097</a>
                 <a class="flex w-[150px] my-2" href="#"><svg xmlns="http://www.w3.org/2000/svg" class="my-1  h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -34,7 +34,7 @@ const Header = {
            </div>
         <!-- header end -->
         `
-    }
+  }
 }
 
 export default Header

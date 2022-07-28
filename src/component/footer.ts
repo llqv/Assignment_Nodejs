@@ -1,6 +1,6 @@
 const Footer = {
-    render: () => {
-        return `
+  render: () => {
+    return `
         
     <!-- Footer -->
     <div class="container mx-auto grid grid-cols-4 mb-[100px]">
@@ -10,7 +10,7 @@ const Footer = {
       <br>
       <a href="#">Mua hàng từ xa</a>
       <br>
-      <h1 class="text-[#FF0000] my-3">Gặp trực tiếp cửa hàng gần nhất (Zalo hoặc gọi điện)</h1>
+      <h1 class="text-[#FF0000] my-3">Gặp trực tiếp cửa hàng gần nhất. (Zalo hoặc gọi điện)</h1>
       <div class="grid grid-cols-4 gap-1 w-3/4">
         <a href="#">
           <img src="public/image/Rectangle (1).png" alt="">
@@ -190,7 +190,7 @@ const Footer = {
   </div>
   <!-- Footer -->
         `
-    }
+  }
 }
 
 export default Footer
