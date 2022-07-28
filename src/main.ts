@@ -5,6 +5,8 @@ import Navigo from 'navigo'
 import cardPage from './pages/user/cardPage'
 import signin from './pages/register/signin'
 import signup from './pages/register/signup'
+import DetailProduct from './pages/user/detailproduct'
+import HomePage from './pages/user/homepage'
 
 const router = new Navigo('/', { linksSelector: "a" })
 
@@ -26,10 +28,13 @@ const print = async (component: ComponentBase, param?: any) => {
 
 router.on({
     "/": () => {
-        // print(HomePage)
+        print(HomePage)
     },
     "/card": () => {
         print(cardPage)
+    },
+    "/detailPage": () => {
+        print(DetailProduct)
     },
     "/signin": () => {
         print(signin)

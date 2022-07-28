@@ -1,7 +1,11 @@
+import Footer from "../../component/footer"
+import Header from "../../component/header"
+
 const DetailProduct = {
-    render: () => {
+    render: async () => {
         return `
-        <div class="container   w-[1000px] mx-auto">
+        ${Header.render()}
+        <div class="container w-[1000px] mx-auto">
         <section class="">
             <div class=" mx-auto px-5">
                 <ul class="flex justify-start space-x-5 font-mono capitalize">
@@ -137,6 +141,7 @@ const DetailProduct = {
             </div>
         </a>
     </div>
+    ${Footer.render()}
         `
     }
 }

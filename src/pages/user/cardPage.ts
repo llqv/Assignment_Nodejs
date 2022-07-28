@@ -1,3 +1,4 @@
+import Footer from "../../component/footer"
 import Header from "../../component/header"
 const cardPage = {
     render: async () => {
