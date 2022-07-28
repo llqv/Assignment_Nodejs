@@ -43,6 +43,8 @@ const signup = {
                         </div>
                     </div>
                     
+                    <br>
+                    
                     <div class="right-side bg-gray-200 w-1/3 px-14 flex items-center">
                         <img src="/image/cellphones-logo.png" class="mt-20" alt="">
                     </div>
