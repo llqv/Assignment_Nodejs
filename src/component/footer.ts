@@ -3,7 +3,7 @@ const Footer = {
     return `
         
     <!-- Footer -->
-    <div class="container mx-auto grid grid-cols-4 mb-[100px]">
+    <div class="container mx-auto grid grid-cols-4 mb-[100px] mt-8">
       <div class="">
       <h1 class="text-xl my-2">Tìm cửa hàng</h1>
       <a href="#">Tìm cửa hàng gần nhất</a>
