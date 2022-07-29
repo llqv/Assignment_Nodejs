@@ -12,7 +12,7 @@ export const signup = async (req,res) => {
         })
     } catch (error) {
         return res,status(400).json({
-            message : "Đăng ký không thành công"
+             message : "Đăng ký không thành công"
         })
     }
 }
