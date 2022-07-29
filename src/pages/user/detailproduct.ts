@@ -1,6 +1,10 @@
+import Footer from "../../component/footer"
+import Header from "../../component/header"
+
 const DetailProduct = {
-    render: () => {
+    render: async () => {
         return `
+<<<<<<< HEAD
         <div class="container   w-[1200px] mx-auto">
 
         <div class=" mx-auto px-5">
@@ -13,6 +17,22 @@ const DetailProduct = {
             <div class="capitalize font-mono text-2xl">
                 <a href="#">Samsung galaxy A73(5G) 256GB</a>
                 <hr>
+=======
+        ${Header.render()}
+        <div class="container w-[1000px] mx-auto">
+        <section class="">
+            <div class=" mx-auto px-5">
+                <ul class="flex justify-start space-x-5 font-mono capitalize">
+                    <li> <a>trang chủ</a></li>
+                    <li><a>điện thoại</a></li>
+                    <li><a>samsung</a></li>
+                    <li><a>samsung galaxy A73(5G)256GB</a></li>
+                </ul>
+                <div class="capitalize font-mono ">
+                    <h2>Samsung galaxy A73(5G) 256GB</h2>
+                    <hr>
+                </div>
+>>>>>>> 72af8e97874b6fac08c6c564a7fd3db755fa47fd
             </div>
         </div>
 
@@ -255,6 +275,7 @@ const DetailProduct = {
             </div>
         </a>
     </div>
+    ${Footer.render()}
         `
     }
 }

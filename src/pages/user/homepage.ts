@@ -1,6 +1,10 @@
+import Footer from "../../component/footer"
+import Header from "../../component/header"
+
 const HomePage = {
-    render: () => {
+    render: async () => {
         return `
+        ${Header.render()}
         <!-- Navbar -->
     <div class="container mx-auto grid grid-cols-4 my-3">
       <div class="">
@@ -388,6 +392,7 @@ const HomePage = {
 
     </div>
     <!-- Body -->
+    ${Footer.render()}
         `
     }
 }
