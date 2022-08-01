@@ -7,39 +7,39 @@ const productSchema = mongoose.Schema({
     },
     price: {
         type: Number,
-        required: true
+        // required: true
     },
     Image: {
         type: String,
-        required: true
+        // required: true
     },
     sale: {
         type: Number,
-        required: true
+        // required: true
     },
     longDesc: {
         type: String,
-        required: true
+        // required: true
     },
     shortDesc: {
         type: String,
-        required: true
+        // required: true
     },
     salientfeatures: {
         type: String,
-        required: true
+        // required: true
     },
     category: {
         type: Number,
-        required: true
+        // required: true
     },
     id: {
         type: Number,
-        required: true
+        // required: true
     },
     isDelete: {
         type: Boolean,
-        required: true
+        // required: true
     }
 
 });
