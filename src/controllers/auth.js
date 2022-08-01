@@ -7,6 +7,7 @@ export const signup = async (req,res) => {
             User : {
                 email : User.email,
                 name : User.name,
+                password : User.password,
                 role : User.role
             }
         })
