@@ -4,20 +4,6 @@ import Header from "../../component/header"
 const DetailProduct = {
     render: async () => {
         return `
-<<<<<<< HEAD
-        <div class="container   w-[1200px] mx-auto">
-
-        <div class=" mx-auto px-5">
-            <ul class="flex justify-start space-x-5 font-mono capitalize">
-                <li> <a href="#">trang chủ</a></li>
-                <li><a href="#">điện thoại</a></li>
-                <li><a href="#">samsung</a></li>
-                <li><a href="#">samsung galaxy A73(5G)256GB</a></li>
-            </ul>
-            <div class="capitalize font-mono text-2xl">
-                <a href="#">Samsung galaxy A73(5G) 256GB</a>
-                <hr>
-=======
         ${Header.render()}
         <div class="container w-[1000px] mx-auto">
         <section class="">
@@ -32,7 +18,7 @@ const DetailProduct = {
                     <h2>Samsung galaxy A73(5G) 256GB</h2>
                     <hr>
                 </div>
->>>>>>> 72af8e97874b6fac08c6c564a7fd3db755fa47fd
+
             </div>
         </div>
 
