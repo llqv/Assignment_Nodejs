@@ -44,56 +44,55 @@ const signin = {
             </div>
         `;
     },
-    // afterRender: async () => {
-    //     // Khai bao
-    //     const submit = document.querySelector('#btn-submit')
-    //     const formField = [
-    //         "email", "name", "password"
-    //     ]
-    //     const validate = function() {
-    //         let data: any = {};
-    //         let error = false
-    //         const errors = document.querySelectorAll('.error')
-    //         errors.forEach(e => {
-    //             e.classList.add('hidden')
-    //         })
-    //         formField.forEach(field => {
-    //             const element = document.getElementById(field)
+    afterRender: async () => {
+        const submit = document.querySelector('#btn-submit')
+        const formField = [
+            "email", "name", "password"
+        ]
+        const validate = function() {
+            let data: any = {};
+            let error = false
+            const errors = document.querySelectorAll('.error')
+            errors.forEach(e => {
+                e.classList.add('hidden')
+            })
+            formField.forEach(field => {
+                const element = document.getElementById(field)
                 
-    //             if(element?.value.length == 0) {
-    //                 addError(element, "Trường dữ liệu bắt buộc")
-    //                 error = true;
-    //             }
+                if(element?.value.length == 0) {
+                    addError(element, "Trường dữ liệu bắt buộc")
+                    error = true;
+                }
 
-    //             if(field == "email") {
-    //                 if(!validator.isEmail(element?.value)) {
-    //                     addError(element, "Định dạng email sai")
-    //                     error = true
-    //                 }
-    //             }
-    //             data[field] = element?.value
-    //         })
-    //         return {error, data}
-    //     }
+                if(field == "email") {
+                    if(!validator.isEmail(element?.value)) {
+                        addError(element, "Định dạng email sai")
+                        error = true
+                    }
+                }
+                data[field] = element?.value
+            })
+            return {error, data}
+        }
 
-    //     const addError = function(element: HTMLElement, message: string) {
-    //         let temp = element.nextElementSibling;
-    //         temp.classList.remove("hidden");
-    //         temp.textContent = message;
-    //         element.style.borderColor = "red";
-    //     }
+        const addError = function(element: HTMLElement, message: string) {
+            let temp = element.nextElementSibling;
+            temp.classList.remove("hidden");
+            temp.textContent = message;
+            element.style.borderColor = "red";
+        }
 
-    //     submit.onclick = async function () {
-    //         const {error, data} = validate()
-    //         if(!error) {
-    //             try {
-    //                 const res = await login(data)
-    //                 alert("Đăng nhập thành công")
-    //             } catch(error) {
-    //                 alert(error.message)
-    //             }
-    //         }
-    //     }
-    // }
+        submit.onclick = async function () {
+            const {error, data} = validate()
+            if(!error) {
+                try {
+                    const res = await login(data)
+                    alert("Đăng nhập thành công")
+                } catch(error) {
+                    alert(error.message)
+                }
+            }
+        }
+    }
 }
 export default signin;
