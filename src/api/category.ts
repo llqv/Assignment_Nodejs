@@ -5,7 +5,7 @@ export const listCategory = () => {
     return instance.get('/category')
 }
 
-// Category by id
+// Category theo id
 export const catebyId = (id: any) => {
     return instance.get(`/category/${id}`)
 }
