@@ -1,3 +1,6 @@
+import validator from "validator";
+import { register } from "../../api/user";
+
 const signup = {
     render: async () => {
         return /*html*/`
@@ -10,14 +13,14 @@ const signup = {
                             <h1 class="text-center text-2xl font-bold mb-2">Đăng ký</h1>
 
                             <div>
-                                <label for="email" class="text-xl font-semibold">Email</label><br>
-                                <input type="email" id="email" name="email" class="w-full h-12 border-2 border-[#C7C7C7] p-2">
+                                <label for="name" class="font-medium">Name</label><br>
+                                <input type="name" id="name" name="name" class="w-full h-12 border-2 border-[#C7C7C7] p-2">
                                 <div class="text-red-500 text-sm error"></div>
                             </div>
 
                             <div>
-                                <label for="phone" class="font-medium">Số điện thoại</label><br>
-                                <input type="number" id="phone" name="phone" class="w-full h-12 border-2 border-[#C7C7C7] p-2"><br>
+                                <label for="email" class="font-medium">Email</label><br>
+                                <input type="email" id="email" name="email" class="w-full h-12 border-2 border-[#C7C7C7] p-2">
                                 <div class="text-red-500 text-sm error"></div>
                             </div>
 
@@ -27,16 +30,16 @@ const signup = {
                                 <div class="text-red-500 text-sm error"></div>
                             </div>
 
-                            <button type="submit" class="w-full h-12 text-white text-center bg-[#FF424E] mt-2">Đăng nhập</button>
+                            <button type="submit" id="btn-submit" class="w-full h-12 text-white text-center bg-[#FF424E] mt-2">Đăng nhập</button>
 
                             <div class="social text-center mt-10">
                                 <a href="/signin" class="text-blue-400">Đăng Nhập</a> | <span>Hoặc đăng nhập bằng</span>
                                 <div class="mx-auto w-32 flex justify-between mt-5">
                                     <a href="">
-                                        <img src="/images/face.png" alt="" class="w-14">
+                                        <img src="/image/face.png" alt="" class="w-14">
                                     </a>
                                     <a href="" >
-                                        <img src="/images/google.png" alt="" class="w-14">
+                                        <img src="/image/google.png" alt="" class="w-14">
                                     </a>
                                 </div>
                             </div>
@@ -53,10 +56,9 @@ const signup = {
         `;
     },
     // afterRender: async () => {
-    //     // Khai bao
     //     const submit = document.querySelector('#btn-submit')
     //     const formField = [
-    //         "email", "phone", "password"
+    //         "email", "name", "password"
     //     ]
     //     const validate = function() {
     //         let data: any = {};
