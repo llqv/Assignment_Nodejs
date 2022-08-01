@@ -33,10 +33,6 @@ const productSchema = mongoose.Schema({
         type: Number,
         // required: true
     },
-    // id: {
-    //     type: Number,
-        // required: true
-    // },
     isDelete: {
         type: Boolean,
         // required: true
