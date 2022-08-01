@@ -1,4 +1,4 @@
-import validator from "validator";
+// import validator from "validator";
 import { register } from "../../api/user";
 
 const signup = {
@@ -60,7 +60,7 @@ const signup = {
         const formField = [
             "email", "name", "password"
         ]
-        const validate = function() {
+        const validate = function () {
             let data: any = {};
             let error = false
             const errors = document.querySelectorAll('.error')
@@ -69,24 +69,24 @@ const signup = {
             })
             formField.forEach(field => {
                 const element = document.getElementById(field)
-                
-                if(element?.value.length == 0) {
+
+                if (element?.value.length == 0) {
                     addError(element, "Trường dữ liệu bắt buộc")
                     error = true;
                 }
 
-                if(field == "email") {
-                    if(!validator.isEmail(element?.value)) {
+                if (field == "email") {
+                    if (!validator.isEmail(element?.value)) {
                         addError(element, "Định dạng email sai")
                         error = true
                     }
                 }
                 data[field] = element?.value
             })
-            return {error, data}
+            return { error, data }
         }
 
-        const addError = function(element: HTMLElement, message: string) {
+        const addError = function (element: HTMLElement, message: string) {
             let temp = element.nextElementSibling;
             temp.classList.remove("hidden");
             temp.textContent = message;
@@ -94,12 +94,12 @@ const signup = {
         }
 
         submit.onclick = async function () {
-            const {error, data} = validate()
-            if(!error) {
+            const { error, data } = validate()
+            if (!error) {
                 try {
                     const res = await register(data)
                     alert("Đăng kí thành công")
-                } catch(error) {
+                } catch (error) {
                     alert(error.message)
                 }
             }

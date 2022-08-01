@@ -76,7 +76,7 @@ const AddProd = {
                               <br>
                               <select class="w-full mr-10 rounded-md h-8 my-4" name="" id="cate">
                                 ${res.map((item: Category) => `
-                                <option>${item.name}</option>
+                                <option value="${item.id}">${item.name}</option>
                                 `)}
                               </select>
                             </div>
