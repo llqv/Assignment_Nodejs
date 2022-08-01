@@ -25,8 +25,14 @@ export const list = async (req, res) => {
 export const read = async (req, res) => {
     try {
         const category = await Category.findOne({_id: req.params.id}).exec();
+<<<<<<< HEAD
         res.json({
           category
+=======
+        // const products = await Product.find({category: category}).populate('category').select("-category").exec();
+        res.json({
+            category
+>>>>>>> f3eacde49739e8b9b2810bcf2ea79ff1364fb9ad
         });
     } catch (error) {
         res.status(400).json({
