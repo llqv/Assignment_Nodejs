@@ -1,6 +1,7 @@
 import { List } from "../../api/products"
 import Footer from "../../component/footer"
 import Header from "../../component/header"
+import Product from "../../models/product"
 
 const HomePage = {
   render: async () => {
@@ -70,13 +71,14 @@ const HomePage = {
 
     </div>
     <div class="grid grid-cols-7 gap-3 mx-10">
-      <a href="#">
+    ${res.map((item: Product) => `
+    <a href="#">
         <div class="p-3 drop-shadow-md border rounded-md">
-          <img class="p-1" src="https://cdn2.cellphones.com.vn/358x/media/catalog/product/_/0/_0005_layer_6_1.jpg" alt="">
-          <h1>iPhone 11 64GB I Chính hãng VN/A</h1>
+          <img class="p-1" src="${item.Image}" alt="">
+          <h1>${item.name}</h1>
           <div class="my-3 flex">
             <div class="text-red-500">
-              10.790.000 đ
+              ${item.saleOffPrice} đ
             </div>
             <div class="text-gray-400 mx-5 text-sm mt-1">
               10.790.000 đ
@@ -105,7 +107,8 @@ const HomePage = {
           </div>
         </div>
       </a>
-
+    `).join("")}
+      
     </div>
     <!-- Body -->
     ${Footer.render()}
