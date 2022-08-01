@@ -1,4 +1,4 @@
-class Product {
+class Products {
     name: string;
     originalPrice: number;
     Image: string;
@@ -31,4 +31,4 @@ class Product {
             this._id = _id
     }
 }
-export default Product
+export default Products

@@ -1,6 +1,7 @@
 import { List } from "../../api/products";
 import HeaderAdmin from "../../component/headerAdmin"
 import SidebarAdmin from "../../component/sidebarAdmin"
+import Products from "../../models/product";
 import Product from "../../models/product";
 
 const listProduct = {
@@ -61,7 +62,7 @@ const listProduct = {
                         </tr>
                     </thead>
                     <tbody>
-                    ${res.map((item: Product, index: number) => `
+                    ${res.map((item: Products, index: number) => `
                     <tr class="border-t-2 hover:bg-orange-100">
                     <td class="text-center p-3 px-5">${index + 1}</td>
                     <td class="text-center p-3 px-5">${item.name}</td>

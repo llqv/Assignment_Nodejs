@@ -1,6 +1,7 @@
 import { List } from "../../api/products"
 import Footer from "../../component/footer"
 import Header from "../../component/header"
+import Products from "../../models/product"
 import Product from "../../models/product"
 
 const HomePage = {
@@ -71,7 +72,7 @@ const HomePage = {
 
     </div>
     <div class="grid grid-cols-7 gap-3 mx-10">
-    ${res.map((item: Product) => `
+    ${res.map((item: Products) => `
     <a href="#">
         <div class="p-3 drop-shadow-md border rounded-md">
           <img class="p-1" src="${item.Image}" alt="">

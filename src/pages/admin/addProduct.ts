@@ -4,7 +4,7 @@ import { UploadFile } from "../../api/upload"
 import HeaderAdmin from "../../component/headerAdmin"
 import SidebarAdmin from "../../component/sidebarAdmin"
 import Category from "../../models/category"
-import Product from "../../models/product"
+import Products from "../../models/product"
 
 const AddProd = {
   render: async () => {
@@ -107,7 +107,6 @@ const AddProd = {
     const addProduct = document.querySelector("#btn-add")
     const preview = document.querySelector("#preview")
     const plus = document.querySelector("#plus")
-
     const image = document.querySelector("#image")
     addProduct?.addEventListener('click', async function (e) {
       e.preventDefault
@@ -119,7 +118,7 @@ const AddProd = {
       const feature = document.querySelector('#salientfeatures')?.value
       const category = document.querySelector('#cate')?.value
 
-      const product: Product = {
+      const product: Products = {
         name: name,
         Image: preview?.src,
         originalPrice: originalPrice,
@@ -129,14 +128,7 @@ const AddProd = {
         feature: feature,
         category: category
       }
-      console.log(product);
       const complete = await Create(product)
-      if (complete) {
-        alert("Thêm sản phẩm thành công")
-        location.href = "/admin/products"
-      }
-
-
     })
     //Add event upload
     image?.addEventListener('change', async (e) => {

@@ -1,9 +1,9 @@
 const HeaderAdmin = {
-    render: () => {
-        return `
+  render: () => {
+    return /*html*/`
           <div class="flex justify-between bg-blue-500 py-1">
-          <a class="flex text-white mx-3" href="/admin/products">
-            <img class="w-[50px] h-[50px] my-3" src="/public/290707804_583841913337957_8588693790177220222_n.png" alt="">
+          <a class="flex text-white mx-3" href="/adminPages">
+            <img class="w-[50px] h-[50px] my-3" src="../public/image/cellphones-logo.png" alt="">
             <p class="my-6 text-xl ml-2">Dashboard</p>
           </a>
             <form class="my-6" action="">
@@ -15,6 +15,6 @@ const HeaderAdmin = {
             </div>
       </div>
           `
-    }
+  }
 }
 export default HeaderAdmin
