@@ -5,7 +5,7 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    price: {
+    originalPrice: {
         type: Number,
         // required: true
     },
@@ -13,19 +13,19 @@ const productSchema = mongoose.Schema({
         type: String,
         // required: true
     },
-    sale: {
+    saleOffPrice: {
         type: Number,
         // required: true
     },
-    longDesc: {
+    description: {
         type: String,
         // required: true
     },
-    shortDesc: {
+    shortDescription: {
         type: String,
         // required: true
     },
-    salientfeatures: {
+    feature: {
         type: String,
         // required: true
     },
