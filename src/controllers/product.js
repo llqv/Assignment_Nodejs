@@ -1,7 +1,8 @@
-import Product from "../models/product";
+import product from "../models/product";
+
 export const list = async (req, res) => {
     try {
-        const data = await Product.find();
+        const data = await product.find();
         res.json(data);
     } catch (error) {
         res.status(400).json({
@@ -13,10 +14,8 @@ export const read = async (req, res) => {
     const filter = { _id: req.params.id };
     const populate = req.query["_expand"];
     try {
-
-        const product = await Product.findOne(filter).select("-__v").populate(populate).exec();
-        console.log('product', product);
-        res.json(product);
+        const Product = await product.findOne(filter).select("-__v").populate(populate).exec();
+          res.json(Product)
     } catch (error) {
         res.status(400).json({
             message: "Không tìm thấy sản phẩm",
@@ -26,8 +25,9 @@ export const read = async (req, res) => {
 };
 export const add = async (req, res) => {
     try {
-        const product = await new Product(req.body).save();
-        res.json(product);
+        console.log(req.body);
+        const newProduct = await new product(req.body).save()
+        return res.status(200).json("Thêm sản phẩm thành công")
     } catch (error) {
         res.status(400).json({
             error: 'Không thêm được sản phẩm'
@@ -37,19 +37,21 @@ export const add = async (req, res) => {
 export const remove = async (req, res) => {
     try {
         const id = req.params.id;
-        const product = await Product.findOneAndDelete({ _id: id }).exec();
-        res.json(product);
+        const Product = await product.findOneAndDelete({ _id: id }).exec();
+        return res.status(200).json({
+            message : "Xoá sản phẩm thành công"
+        })
     } catch (error) {
         res.status(400).json({
-            error: 'Không thêm được sản phẩm'
+            error: 'Không xoá được sản phẩm'
         })
     }
 }
 
 export const update = async (req, res) => {
     try {
-        const product = await Product.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
-        res.json(product);
+        const Product = await product.findOneAndUpdate({_id: req.params.id}, req.body, {new: true})
+        res.json(Product);
     } catch (error) {
         res.status(400).json({
             error: 'Không thêm được sản phẩm'
