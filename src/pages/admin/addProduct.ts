@@ -134,7 +134,7 @@ const AddProd = {
       const complete = await Create(product)
       if (complete) {
         alert("Thêm sản phẩm thành công")
-        location.href = "/admin/products"
+        location.href = "/adminPages"
       }
 
 

@@ -67,7 +67,7 @@ const listProduct = {
                     <td class="text-center p-3 px-5">${item.name}</td>
                     <td class="w-[120px] p-3 px-5"><img class="w-20 h-20 rounded-full" src="${item.Image}" alt=""></td>
                     <td class="text-center p-3 px-5">${item.originalPrice}</td>
-                    <td class="text-left p-3 px-5 w-1/2">${item.feature}</td>
+                    <td class="text-left p-3 px-5 w-1/2">${item.description}</td>
                     <td class="text-center p-3 px-5">
                         <label for="default-toggle " class="inline-flex relative items-center cursor-pointer">
                             <input type="checkbox" value="" id="default-toggle " class="sr-only peer">
