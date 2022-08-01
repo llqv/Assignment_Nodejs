@@ -7,35 +7,35 @@ const productSchema = mongoose.Schema({
     },
     originalPrice: {
         type: Number,
-        // required: true
+        required: true
     },
     Image: {
         type: String,
-        // required: true
+        required: true
     },
     saleOffPrice: {
         type: Number,
-        // required: true
+        required: true
     },
     description: {
         type: String,
-        // required: true
+        required: true
     },
     shortDescription: {
         type: String,
-        // required: true
+        required: true
     },
     feature: {
         type: String,
-        // required: true
+        required: true
     },
     category: {
         type: Number,
-        // required: true
+        required: true
     },
     isDelete: {
         type: Boolean,
-        // required: true
+        required: true
     }
 
 });
