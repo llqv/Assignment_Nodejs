@@ -11,11 +11,11 @@ export const Read = (id: any) => {
 }
 //add
 export const Create = (product: Product[]) => {
-    return instance.get(`/products`, product)
+    return instance.post(`/products/`, product)
 }
 //update
 export const Update = (product: Product[]) => {
-    return instance.get(`/products/${product.id}`, product)
+    return instance.put(`/products/${product.id}`, product)
 }
 //List by cate
 export const Listbycate = (category: number) => {

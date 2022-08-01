@@ -2,10 +2,10 @@ import instance from "./config";
 
 // List
 export const listCategory = () => {
-    return instance.get('/category')
+    return instance.get('/categories')
 }
 
 // Category by id
 export const catebyId = (id: any) => {
-    return instance.get(`/category/${id}`)
+    return instance.get(`/categries/${id}`)
 }

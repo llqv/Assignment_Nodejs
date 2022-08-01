@@ -9,6 +9,7 @@ import DetailProduct from './pages/user/detailproduct'
 import HomePage from './pages/user/homepage'
 import editProductPage from './pages/admin/editProductPage'
 import listProduct from './pages/admin/listProduct'
+import AddProd from './pages/admin/addProduct'
 
 const router = new Navigo('/', { linksSelector: "a" })
 
@@ -24,7 +25,7 @@ const print = async (component: ComponentBase, param?: any) => {
     }
 
     if (component.afterRender) {
-       component.afterRender()
+        component.afterRender()
     }
 }
 
@@ -49,6 +50,9 @@ router.on({
     },
     "/adminPages": () => {
         print(listProduct)
+    },
+    "/adminPages/add": () => {
+        print(AddProd)
     },
 })
 router.resolve();

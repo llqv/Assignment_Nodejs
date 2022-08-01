@@ -1,9 +1,16 @@
+import { listCategory } from "../../api/category"
+import { Create } from "../../api/products"
+import { UploadFile } from "../../api/upload"
 import HeaderAdmin from "../../component/headerAdmin"
 import SidebarAdmin from "../../component/sidebarAdmin"
+import Category from "../../models/category"
+import Product from "../../models/product"
 
 const AddProd = {
-    render: async () => {
-        return /*html*/`
+  render: async () => {
+    const data = await listCategory()
+    const res = data.data
+    return /*html*/`
           ${HeaderAdmin.render()}
           <div class="flex mt-3">
               <div class="w-[250px] flex-none">
@@ -68,7 +75,9 @@ const AddProd = {
                               <label for="">Danh mục</label>
                               <br>
                               <select class="w-full mr-10 rounded-md h-8 my-4" name="" id="cate">
-                                <option>---</option>
+                                ${res.map((item: Category) => `
+                                <option>${item.name}</option>
+                                `)}
                               </select>
                             </div>
                             <div class="">
@@ -93,6 +102,54 @@ const AddProd = {
             </div>
               </div>
           `
-    }
+  },
+  afterRender: () => {
+    const addProduct = document.querySelector("#btn-add")
+    const vldImg: any = document.querySelector("#error-img")
+    const preview = document.querySelector("#preview")
+    const plus = document.querySelector("#plus")
+
+    const image = document.querySelector("#image")
+    addProduct?.addEventListener('click', async function (e) {
+      e.preventDefault
+      const name = document.querySelector('#name')?.value
+      const originalPrice = document.querySelector('#price')?.value
+      const saleOffPrice = document.querySelector('#sale')?.value
+      const description = document.querySelector('#longDesc')?.value
+      const shortDescription = document.querySelector('#shortDesc')?.value
+      const feature = document.querySelector('#salientfeatures')?.value
+      const category = document.querySelector('#cate')?.value
+
+      const product: Product = {
+        name: name,
+        Image: preview?.src,
+        originalPrice: originalPrice,
+        saleOffPrice: saleOffPrice,
+        description: description,
+        shortDescription: shortDescription,
+        feature: feature,
+        category: category
+      }
+      console.log(product);
+      const complete = await Create(product)
+      if (complete) {
+        alert("Thêm sản phẩm thành công")
+        location.href = "/admin/products"
+      }
+
+
+    })
+    //Add event upload
+    image?.addEventListener('change', async (e) => {
+      const file = e.target.files[0]
+      console.log(file);
+      plus.classList = "hidden"
+      const res = await UploadFile(file)
+      const data = res.data
+      preview.src = data.url
+
+    })
+
+  }
 }
 export default AddProd
