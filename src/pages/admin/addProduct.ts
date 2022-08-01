@@ -105,7 +105,6 @@ const AddProd = {
   },
   afterRender: () => {
     const addProduct = document.querySelector("#btn-add")
-    const vldImg: any = document.querySelector("#error-img")
     const preview = document.querySelector("#preview")
     const plus = document.querySelector("#plus")
 
@@ -142,7 +141,6 @@ const AddProd = {
     //Add event upload
     image?.addEventListener('change', async (e) => {
       const file = e.target.files[0]
-      console.log(file);
       plus.classList = "hidden"
       const res = await UploadFile(file)
       const data = res.data
