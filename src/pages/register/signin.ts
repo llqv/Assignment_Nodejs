@@ -88,7 +88,7 @@ const signin = {
     //         if(!error) {
     //             try {
     //                 const res = await login(data)
-    //                 alert("Đăng kí thành công")
+    //                 alert("Đăng nhập thành công")
     //             } catch(error) {
     //                 alert(error.message)
     //             }
