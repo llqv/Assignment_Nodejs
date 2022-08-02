@@ -30,7 +30,7 @@ const productSchema = mongoose.Schema({
         required: true
     },
     category: {
-        type: Number,
+        type: String,
         required: true
     },
     isDelete: {
