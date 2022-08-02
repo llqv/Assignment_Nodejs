@@ -12,9 +12,11 @@ export const list = async (req, res) => {
 };
 export const read = async (req, res) => {
     const filter = { _id: req.params.id };
-    const populate = req.query["_expand"];
+    // const populate = req.query["_expand"];
     try {
-        const Product = await product.findOne(filter).select("-__v").populate(populate).exec();
+        // const Product = await product.findOne(filter).select("-__v").populate(populate).exec();
+        const Product = await product.findOne(filter).exec();
+        
           res.json(Product)
     } catch (error) {
         res.status(400).json({
