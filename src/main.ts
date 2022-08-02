@@ -18,14 +18,15 @@ export type ComponentBase = {
     afterRender?: () => void
 }
 
-const print = async (component: ComponentBase, param?: any) => {
+
+const print = async (component: ComponentBase, _id: ComponentBase, params?: any) => {
     const element = document.getElementById('app')
     if (element) {
-        element.innerHTML = await component.render()
+        element.innerHTML = await component.render(_id)
     }
 
     if (component.afterRender) {
-        component.afterRender()
+        component.afterRender(_id)
     }
 }
 
@@ -46,9 +47,9 @@ router.on({
         print(signup)
     },
     "/admin/products/edit/:id": (data: any) => {
-        const id = +data.data.id
+        const id = data.data.id
         print(editProductPage, id)
-      },
+    },
     "/adminPages": () => {
         print(listProduct)
     },

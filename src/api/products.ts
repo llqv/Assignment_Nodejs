@@ -15,7 +15,7 @@ export const Create = (product: Product[]) => {
 }
 //update
 export const Update = (product: Product[]) => {
-    return instance.put(`/products/${product.id}`, product)
+    return instance.patch(`/products/${product.id}`, product)
 }
 //List by cate
 export const Listbycate = (category: number) => {

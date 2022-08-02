@@ -18,7 +18,7 @@ class Products {
         feature: string,
         description: string,
         shortDescription: string,
-        _id?: string
+        _id: string
     ) {
         this.name = name,
             this.originalPrice = originalPrice,
