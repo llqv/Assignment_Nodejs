@@ -45,9 +45,10 @@ router.on({
     "/signup": () => {
         print(signup)
     },
-    "/admin/edit/:id": () => {
-        print(editProductPage)
-    },
+    "/admin/products/edit/:id": (data: any) => {
+        const id = +data.data.id
+        print(editProductPage, id)
+      },
     "/adminPages": () => {
         print(listProduct)
     },

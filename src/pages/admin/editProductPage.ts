@@ -1,8 +1,17 @@
 import HeaderAdmin from "../../component/headerAdmin"
 import SidebarAdmin from "../../component/sidebarAdmin"
+import { List, Read, Update } from "../../api/products"
+import Products from "../../models/product"
+import { listCategory } from "../../api/category"
+import Category from "../../models/category"
 
 const editProductPage = {
     render: async () => {
+      const res = await Read(id)
+      const data:Products = res.data
+
+      const resone = await listCategory()
+      const cate:Category[] = resone.data
         return /*html*/`
         ${HeaderAdmin.render()}
 <div class="flex mt-3">
@@ -35,7 +44,7 @@ ${SidebarAdmin.render()}
                 </div>
               <br>
               <div class="mt-5">
-                <textarea id="shortDesc" class="w-full rounded-b-lg drop-shadow-md p-3" placeholder="Mô tả ngắn: " name="" id="" cols="30" rows="10"></textarea>
+                <textarea id="shortDesc" class="w-full rounded-b-lg drop-shadow-md p-3" placeholder="Mô tả ngắn: " name="" id="" cols="30" rows="10">${data.shortDescription  }</textarea>
                 <div class="text-red-500" id="erShort"></div>
               </div>
             </div>
@@ -45,20 +54,20 @@ ${SidebarAdmin.render()}
               <div class="mt-5">
                 <label for="">Tên sản phẩm</label>
                 <br>
-                <input id="name" class="w-full mr-10 rounded-md h-8 my-4 p-3" value="" type="text">
+                <input id="name" class="w-full mr-10 rounded-md h-8 my-4 p-3" value="" type="text" value="${data.name}">
                 <div class="text-red-500" id="erName"></div>
               </div>
               <div class="flex">
                 <div class="mt-5 w-1/2 mr-1">
                   <label for="">Giá gốc</label>
                   <br>
-                  <input id="price" class="w-full mr-10 rounded-md h-8 my-4 p-3" value="" type="number">
+                  <input id="price" class="w-full mr-10 rounded-md h-8 my-4 p-3" value="" type="number" value="${data.originalPrice}">
                 <div class="text-red-500" id="erPrice"></div>
                 </div>
                 <div class="mt-5 w-1/2 ml-1">
                   <label for="">Giá khuyến mãi</label>
                   <br>
-                  <input id="sale" class="w-full mr-10 rounded-md h-8 my-4 p-3" value="" type="number">
+                  <input id="sale" class="w-full mr-10 rounded-md h-8 my-4 p-3" value="" type="number" value="${data.saleOffPrice}">
                 <div class="text-red-500" id="erSale"></div>
                 </div>
               </div>
@@ -66,23 +75,27 @@ ${SidebarAdmin.render()}
                 <label for="">Danh mục</label>
                 <br>
                 <select class="w-full mr-10 rounded-md h-8 my-4" name="" id="cate">
-                <option value=""></option>
-                </select>
+                ${
+                  cate.map((Category, index) => (
+                   `<option key=${index}>${Category.name}</option>`
+                  )) 
+                 }
+                </select> 
                 </div>
                 <div class="">
                   <label for="">Đặc điểm nổi bật</label>
                   <br>
-                  <textarea class="w-full rounded-md my-4  p-3" name="" id="salientfeatures" cols="30" rows="10"></textarea>
+                  <textarea class="w-full rounded-md my-4  p-3" name="" id="salientfeatures" cols="30" rows="10">${data.feature}</textarea>
                   <div class="text-red-500" id="erVip"></div>
                   </div>
                 <div class="">
                   <label for="">Mô tả dài</label>
                   <br>
-                  <textarea  class="w-full rounded-md my-4  p-3" name="" id="longDesc" cols="30" rows="10"></textarea>
+                  <textarea  class="w-full rounded-md my-4  p-3" name="" id="longDesc" cols="30" rows="10">${data.description}</textarea>
                   <div class="text-red-500 my-1" id="erLong"></div>
                   <br>
                   </div>
-              <button class="w-[96px] h-[34px] bg-blue-400 hover:bg-blue-500 text-white rounded-md" type="submit" id="btn-add">Cập nhật </button>
+              <button class="w-[96px] h-[34px] bg-blue-400 hover:bg-blue-500 text-white rounded-md" type="submit" id="btn-edit">Cập nhật </button>
               </div>
             </div>
           </div>
@@ -91,6 +104,46 @@ ${SidebarAdmin.render()}
 </div>
   </div>
 `
+    },
+    afterRender: () => {
+      const addProduct = document.querySelector("#btn-edit")
+      const preview = document.querySelector("#preview")
+      const plus = document.querySelector("#plus")
+      const image = document.querySelector("#image")
+
+      addProduct?.addEventListener('click', async function (e) {
+        e.preventDefault
+
+        const name = document.querySelector('#name')?.value
+        const originalPrice = document.querySelector('#price')?.value
+        const saleOffPrice = document.querySelector('#sale')?.value
+        const description = document.querySelector('#longDesc')?.value
+        const shortDescription = document.querySelector('#shortDesc')?.value
+        const feature = document.querySelector('#salientfeatures')?.value
+        const category = document.querySelector('#cate')?.value
+  
+        const product: Products = {
+          name: name,
+          Image: preview?.src,
+          originalPrice: originalPrice,
+          saleOffPrice: saleOffPrice,
+          description: description,
+          shortDescription: shortDescription,
+          feature: feature,
+          category: category
+        }
+        const complete = await Update(product)
+      })
+      //Add event upload
+      image?.addEventListener('change', async (e) => {
+        const file = e.target.files[0]
+        plus.classList = "hidden"
+        const res = await UploadFile(file)
+        const data = res.data
+        preview.src = data.url
+  
+      })
+  
     }
 }
 export default editProductPage
