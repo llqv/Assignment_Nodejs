@@ -31,6 +31,7 @@ export const add = async (req, res) => {
         const newProduct = await new product(req.body).save()
         return res.status(200).json("Thêm sản phẩm thành công")
     } catch (error) {
+        console.log(error)
         res.status(400).json({
             error: 'Không thêm được sản phẩm'
         })
