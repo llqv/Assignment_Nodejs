@@ -20,12 +20,12 @@ const listProduct = {
             <div class="w-[250px] flex-none mt-4 ml-5">
                 ${SidebarAdmin.render()}
             </div>
-            <!-- Content -->
-            <div class="w-full p-10 bg-gradient-to-r from-gray-100">
+                <!-- Content -->
+            <div class="w-full p-10 bg-gradient-to-r bg-gray-100">
             
-            <div class="main text-[#5F5E61]">
-            <div class="flex justify-between">
-                <h1 class="text-xl font-semibold">Dien thoai</h1>
+                <div class="main text-[#5F5E61]">
+                <div class="flex justify-between">
+                <h1 class="text-xl font-semibold">Danh sách sản phẩm </h1>
                 <a data-navigo href="/adminPages/add" class="mr-5 border-blue-500 text-blue-500 border-4 rounded-md p-1"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
@@ -33,9 +33,9 @@ const listProduct = {
                 </div>
                 <div class="flex justify-between">
                 <div class="filter w-[400px] pt-5 flex justify-between">
-                    <span class="my-auto text-base font-medium">Bo Loc:</span>
+                    <span class="my-auto text-base font-medium">Bộ Lọc:</span>
                     <div class="filter-cate">
-                    <label for="category" class="">Danh muc san pham</label><br>
+                    <label for="category" class="">Danh mục sản phẩm</label><br>
                     <select class="w-[300px] h-9 mt-3 rounded border-gray-300" name="category" id="category">
                         ${rescate.map((item: Category) => `
                         <option value="${item.id}">${item.name}</option>
@@ -50,15 +50,14 @@ const listProduct = {
                 </div>
     
                 </div>
-                <table class="w-full mt-10 text-md rounded mb-4">
+                <table class="table-auto w-11/12 mx-auto my-5 text-center">
                     <thead>
-                        <tr class="border-t-2">
+                        <tr class="border-t-[1px] border-gray-500 h-14">
                         <th class="text-center p-3 px-5">#</th>
                         <th class="text-center p-3 px-5">Tên Sản phẩm</th>
                         <th class="text-center p-3 px-5">Ảnh</th>
                         <th class="text-center p-3 px-5">Thành tiền</th>
                         <th class="text-center p-3 px-5">Mô tả</th>
-                        <th class="text-center p-3 px-5">Ẩn/Hiện</th>
                         <th class="text-center p-3 px-5">Thao tác</th>
                         </tr>
                     </thead>
@@ -70,12 +69,7 @@ const listProduct = {
                     <td class="w-[120px] p-3 px-5"><img class="w-20 h-20 rounded-full" src="${item.Image}" alt=""></td>
                     <td class="text-center p-3 px-5">${item.originalPrice}</td>
                     <td class="text-left p-3 px-5 w-1/2">${item.description}</td>
-                    <td class="text-center p-3 px-5">
-                        <label for="default-toggle " class="inline-flex relative items-center cursor-pointer">
-                            <input type="checkbox" value="" id="default-toggle " class="sr-only peer">
-                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                        </label>
-                    </td>
+                   
                     <td class="text-center p-3 px-5">
                             <a href="/admin/products/edit/${item._id}" class="" >
                                 <svg class="mx-auto"  width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -85,12 +79,12 @@ const listProduct = {
                             </a>
                         </td>
                     </tr>
-                    `).join('')}
+                    `).join("")}
                     </tbody>
                 </table>
+                </div>
+                </div>
             </div>
-            </div>
-        </div>
         `;
     },
 }
