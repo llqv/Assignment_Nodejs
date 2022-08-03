@@ -1,4 +1,4 @@
-// import validator from "validator";
+import validator from "validator";
 import { login } from "../../api/user";
 
 const signin = {
