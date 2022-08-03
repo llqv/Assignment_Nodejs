@@ -128,7 +128,14 @@ const AddProd = {
         feature: feature,
         category: category
       }
-      const complete = await Create(product)
+      try {
+        const data = await Create(product)
+            alert('Thêm sản phẩm thành công')
+            location.href = "/adminPages"
+          }
+          catch (err) {
+            console.log(err)
+          }
     })
     //Add event upload
     image?.addEventListener('change', async (e) => {
