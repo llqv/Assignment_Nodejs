@@ -1,40 +1,52 @@
-import user from "../models/user";
+import User from "../models/user";
+import jwt from "jsonwebtoken";
 
-export const signup = async (req,res) => {
+export const signup = async (req, res) => {
     try {
-        const User = await new user(req.body).save();
+        const existEmail = await User.findOne({ email: req.body.email }).exec();
+        if (existEmail) {
+            return res.status(400).json({
+                message: "Email đã tồn tại",
+            });
+        }
+
+        const user = await new User(req.body).save();
+        console.log(user);
         return res.status(200).json({
-            User : {
-                email : User.email,
-                name : User.name,
-                password : User.password,
-                role : User.role
-            }
-        })
+            user: {
+                email: user.email,
+                name: user.name,
+                role: user.role,
+            },
+        });
     } catch (error) {
         return res.status(400).json({
-             message : "Đăng ký không thành công"
-        })
+            message: "Dang ky khong thanh cong",
+            error,
+        });
     }
-}
-
-
-
+};
 export const signin = async (req, res) => {
     try {
-        const User = await user.findOne({ email: req.body.email }).exec();
-        if (!User) {
+        const user = await User.findOne({ email: req.body.email }).exec();
+        if (!user) {
             return res.status(400).json({
                 message: "Email không tồn tại",
             });
         }
-        if (!User.authenticate(req.body.password)) {
+
+        if (!user.authenticate(req.body.password)) {
             return res.status(400).json({
                 message: "Sai mat khau",
             });
-        }  
+        }
+        const token = jwt.sign({ id: user._id }, "123456", { expiresIn: 60 * 60 });
         return res.status(200).json({
-              message : "Đăng nhập thành công"
+            token,
+            user: {
+                id: user._id,
+                email: user.email,
+            },
         });
     } catch (error) {}
 };

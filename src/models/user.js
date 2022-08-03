@@ -1,5 +1,5 @@
-import mongoose from "mongoose"
-import createHmac from 'crypto'
+import mongoose from "mongoose";
+import { createHmac } from "crypto";
 
 const userSchema = mongoose.Schema(
     {
@@ -13,11 +13,11 @@ const userSchema = mongoose.Schema(
         },
         password: {
             type: String,
-            required: true
+            minlength: 6,
         },
         role: {
             type: Number,
-            default: 0
+            default: 0,
         },
     },
     { timestamps: true }
@@ -25,6 +25,7 @@ const userSchema = mongoose.Schema(
 
 userSchema.methods = {
     authenticate(password) {
+        console.log("2");
         return this.password === this.encrytPassword(password);
     },
     encrytPassword: (password) => {
@@ -40,5 +41,5 @@ userSchema.methods = {
 userSchema.pre("save", function (next) {
     this.password = this.encrytPassword(this.password);
     next();
-})
-export default mongoose.model("User", userSchema)
+});
+export default mongoose.model("User", userSchema);
