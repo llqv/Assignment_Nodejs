@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export const UploadFile = async (file: any) => {
-    const CLOUDINARY_NAME = "thisisninh";
+    const CLOUDINARY_NAME = "trungtdph15306";
     const CLOUDINARY_API = `https://api.cloudinary.com/v1_1/${CLOUDINARY_NAME}/image/upload/`;
-    const CLOUDINARY_PRESET = "add_img";
+    const CLOUDINARY_PRESET = "assignmentNodejs";
 
     const formData = new FormData();
     formData.append("file", file)
