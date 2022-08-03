@@ -14,7 +14,7 @@ import AddProd from './pages/admin/addProduct'
 const router = new Navigo('/', { linksSelector: "a" })
 
 export type ComponentBase = {
-    render: () => Promise<string>
+    render: (_id: any) => Promise<string>
     afterRender?: () => void
 }
 
@@ -34,11 +34,12 @@ router.on({
     "/": () => {
         print(HomePage)
     },
+    "/product/:id": (data: any) => {
+        const id = data.data.id
+        print(DetailProduct, id)
+    },
     "/card": () => {
         print(cardPage)
-    },
-    "/detailPage": () => {
-        print(DetailProduct)
     },
     "/signin": () => {
         print(signin)

@@ -73,7 +73,7 @@ const HomePage = {
     </div>
     <div class="grid grid-cols-7 gap-3 mx-10">
     ${res.map((item: Products) => `
-    <a href="#">
+    <a href="/product/${item._id}">
         <div class="p-3 drop-shadow-md border h-[440px] rounded-md">
           <img class="p-1" src="${item.Image}" alt="">
           <h1 id="name">${item.name}</h1>
