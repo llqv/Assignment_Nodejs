@@ -76,7 +76,7 @@ const HomePage = {
     <a href="#">
         <div class="p-3 drop-shadow-md border h-[440px] rounded-md">
           <img class="p-1" src="${item.Image}" alt="">
-          <h1>${item.name}</h1>
+          <h1 id="name">${item.name}</h1>
           <div class="my-3 flex">
             <div class="text-red-500">
             ${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.saleOffPrice)}
