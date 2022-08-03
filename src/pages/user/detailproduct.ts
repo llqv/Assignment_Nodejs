@@ -3,7 +3,7 @@ import Header from "../../component/header"
 
 const DetailProduct = {
     render: async () => {
-        return `
+        return /*html*/ `
         ${Header.render()}
         <div class="container w-[1000px] mx-auto">
         <section class="">

@@ -1,4 +1,4 @@
-// import validator from "validator";
+import validator from "validator";
 import { register } from "../../api/user";
 
 const signup = {

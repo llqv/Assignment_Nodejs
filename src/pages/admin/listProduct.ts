@@ -1,13 +1,15 @@
+import { listCategory } from "../../api/category";
 import { List } from "../../api/products";
 import HeaderAdmin from "../../component/headerAdmin"
 import SidebarAdmin from "../../component/sidebarAdmin"
 import Products from "../../models/product";
-import Product from "../../models/product";
 
 const listProduct = {
     render: async () => {
         const data = await List()
         const res = data.data
+        const cate = await listCategory()
+        const rescate = cate.data
         console.log(res);
 
         return /* html */`
@@ -35,10 +37,9 @@ const listProduct = {
                     <div class="filter-cate">
                     <label for="category" class="">Danh muc san pham</label><br>
                     <select class="w-[300px] h-9 mt-3 rounded border-gray-300" name="category" id="category">
-                       
-                        <option value="1">Danh muc 1</option>
-                        <option value="2">Danh muc 2</option>
-                        <option value="3">Danh muc 3</option>
+                        ${rescate.map((item: Category) => `
+                        <option value="${item.id}">${item.name}</option>
+                        `)}
                         
                     </select>
                     </div>
@@ -85,8 +86,6 @@ const listProduct = {
                         </td>
                     </tr>
                     `).join('')}
-                        
-
                     </tbody>
                 </table>
             </div>
