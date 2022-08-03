@@ -3,24 +3,9 @@ import Header from "../../component/header"
 
 const DetailProduct = {
     render: async () => {
-        return `
-<<<<<<< HEAD
-        <div class="container   w-[1200px] mx-auto">
-
-        <div class=" mx-auto px-5">
-            <ul class="flex justify-start space-x-5 font-mono capitalize">
-                <li> <a href="#">trang chủ</a></li>
-                <li><a href="#">điện thoại</a></li>
-                <li><a href="#">samsung</a></li>
-                <li><a href="#">samsung galaxy A73(5G)256GB</a></li>
-            </ul>
-            <div class="capitalize font-mono text-2xl">
-                <a href="#">Samsung galaxy A73(5G) 256GB</a>
-                <hr>
-=======
+        return /*html*/ `
         ${Header.render()}
         <div class="container w-[1000px] mx-auto">
-        <section class="">
             <div class=" mx-auto px-5">
                 <ul class="flex justify-start space-x-5 font-mono capitalize">
                     <li> <a>trang chủ</a></li>
@@ -32,13 +17,13 @@ const DetailProduct = {
                     <h2>Samsung galaxy A73(5G) 256GB</h2>
                     <hr>
                 </div>
->>>>>>> 72af8e97874b6fac08c6c564a7fd3db755fa47fd
+
             </div>
         </div>
 
-        <div class=" grid grid-cols-4 gap-5 my-5">
+        <div class=" grid grid-cols-4 gap-5 my-5 mx-auto w-[1300px]">
 
-            <div>
+            <div class="mx-auto">
                 <img src="https://cdn2.cellphones.com.vn/358x/media/catalog/product/a/7/a73-xanh.jpg"
                     class=" w-[358px] h-[358px] " alt="">
                 <div class="flex mt-7 text-[7px] text-center ">
@@ -119,8 +104,10 @@ const DetailProduct = {
 
 
 
-        <a href="#" class="font-semibold text-2xl">Sản phẩm cùng loại</a>
-        <div class="flex">
+        <div class="font-semibold text-2xl mx-auto w-[1200px] ">
+        <a href="#" >Sản phẩm cùng loại</a>
+        </div>
+        <div class="flex mx-auto w-[1200px]">
             <div class="w-[232px] h-[307px] mx-1 rounded-lg  border-2 border-stone-400 mt-5">
                 <img src="https://cdn2.cellphones.com.vn/358x/media/catalog/product/b/u/buds-live_1.jpg" alt=""
                     class="w-[160px] h-[160px] container mx-auto ">
@@ -151,7 +138,7 @@ const DetailProduct = {
                 <div class="flex mt-4">
                     <div class="mx-1  text-base">
                         <div class="text-red-600">
-                            <a href="#">590.000 đ</á>
+                            <a href="#">590.000 đ</a>
                         </div>
                     </div>
                 </div>
@@ -183,7 +170,7 @@ const DetailProduct = {
                     alt="" class="w-[160px] h-[160px] container mx-auto ">
                 <div class="text-black font-semibold ">
                     <a href="#">
-                        Dán chống va đập full màn đen Samsung Galaxy A73</as>
+                        Dán chống va đập full màn đen Samsung Galaxy A73</a>
                 </div>
                 <div class="flex mt-4">
                     <div class="mx-1  text-base">
@@ -215,7 +202,7 @@ const DetailProduct = {
             </div>
         </div>
 
-        <section class="bg-stone-300 max-w-7xl max-h-50	mt-20 rounded-lg ">
+        <section class="bg-stone-300 max-w-7xl max-h-50	mt-20 rounded-lg mx-auto ">
             <div class=" text-center text-red-700 text-2xl">
                 <h2>ĐẶC ĐIỂM NỔI BẬT</h2>
             </div>
@@ -235,46 +222,49 @@ const DetailProduct = {
             </div>
 
         </section>
-        <div class="mt-4">
-            <p>Năm 2022 hứa hẹn sẽ là một năm rất đáng trông đợi đối với những ai là fan của thương hiệu điện thoại
-                Samsung. Mới đây, hãng sẽ tiếp tục cho ra mắt nhiều smartphone với sự cải tiến trong thiết kế và cấu
-                hình, trong đó phải kể đến chiếc Samsung Galaxy A73 với nhiều cải tiến so với thế hệ trước. Vậy sản
-                phẩm
-                có gì nổi bật, giá bao nhiêu và liệu có nên mua không? Tìm hiểu ngay nhé!</p>
-        </div>
-        <div class="mt-4 font-semibold text-2xl">
-            <h2>Đánh giá Samsung A73 - Hiệu năng mượt mà, chụp ảnh chuyên nghiệp</h2>
-        </div>
-        <div class="mt-3">
-            <p>Điện thoại cao cấp nhất dòng Galaxy A series sở hữu nhiều nâng cấp đáng giá so với thế hệ trước, từ
-                ngoại
-                hình cho đến hiệu năng, đặc biệt là hệ thống camera. Sau đây là những đánh giá chi tiết về chiếc</p>
-        </div>
-        <div class="mt-4 font-semibold text-2xl">
-            <h2>Thiết kế sang trọng, màn hình Super AMOLED</h2>
-        </div>
-        <div class="mt-3">
-            <p>Trước khi mua bất kỳ chiếc điện thoại nào, người dùng cũng sẽ quan tâm đến thiết kế sản phẩm trước.
-                Với
-                phiên bản A73, Samsung đã tạo nên một chiếc smartphone với vẻ ngoài mang đến cảm giác sang trọng và
-                tinh
-                tế.</p>
-        </div>
-        <div class="mt-3">
-            Samsung Galaxy A73 được thiết kế gọn nhẹ với tiêu chí đáp ứng khả năng mang theo để tiện đi lại cho
-            người
-            dùng. Giờ đây, bạn có thể mang theo chiếc smartphone bên cạnh đến bất cứ đâu, bất cứ lúc nào.
-        </div>
-        <div class="mt-3">Kích thước và trọng lượng của chiếc điện thoại rất vừa phải và dĩ nhiên sẽ không chiếm quá
-            nhiều diện tích trong túi xách và có thể di chuyển dễ dàng.</div>
+<div class="mx-auto w-[1280px]">
+<div class="mt-4">
+<p>Năm 2022 hứa hẹn sẽ là một năm rất đáng trông đợi đối với những ai là fan của thương hiệu điện thoại
+    Samsung. Mới đây, hãng sẽ tiếp tục cho ra mắt nhiều smartphone với sự cải tiến trong thiết kế và cấu
+    hình, trong đó phải kể đến chiếc Samsung Galaxy A73 với nhiều cải tiến so với thế hệ trước. Vậy sản
+    phẩm
+    có gì nổi bật, giá bao nhiêu và liệu có nên mua không? Tìm hiểu ngay nhé!</p>
+</div>
+<div class="mt-4 font-semibold text-2xl">
+<h2>Đánh giá Samsung A73 - Hiệu năng mượt mà, chụp ảnh chuyên nghiệp</h2>
+</div>
+<div class="mt-3">
+<p>Điện thoại cao cấp nhất dòng Galaxy A series sở hữu nhiều nâng cấp đáng giá so với thế hệ trước, từ
+    ngoại
+    hình cho đến hiệu năng, đặc biệt là hệ thống camera. Sau đây là những đánh giá chi tiết về chiếc</p>
+</div>
+<div class="mt-4 font-semibold text-2xl">
+<h2>Thiết kế sang trọng, màn hình Super AMOLED</h2>
+</div>
+<div class="mt-3">
+<p>Trước khi mua bất kỳ chiếc điện thoại nào, người dùng cũng sẽ quan tâm đến thiết kế sản phẩm trước.
+    Với
+    phiên bản A73, Samsung đã tạo nên một chiếc smartphone với vẻ ngoài mang đến cảm giác sang trọng và
+    tinh
+    tế.</p>
+</div>
+<div class="mt-3">
+Samsung Galaxy A73 được thiết kế gọn nhẹ với tiêu chí đáp ứng khả năng mang theo để tiện đi lại cho
+người
+dùng. Giờ đây, bạn có thể mang theo chiếc smartphone bên cạnh đến bất cứ đâu, bất cứ lúc nào.
+</div>
+<div class="mt-3">Kích thước và trọng lượng của chiếc điện thoại rất vừa phải và dĩ nhiên sẽ không chiếm quá
+nhiều diện tích trong túi xách và có thể di chuyển dễ dàng.</div>
 
 
-        <a href="#">
-            <div class="w-[355px] h-[34px] text-center py-1 rounded-md mx-auto my-10 border-black border ">
-                Xem thêm
-            </div>
-        </a>
-    </div>
+<a href="#">
+<div class="w-[355px] h-[34px] text-center py-1 rounded-md mx-auto my-10 border-black border ">
+    Xem thêm
+</div>
+</a>
+</div>
+
+</div>
     ${Footer.render()}
         `
     }
