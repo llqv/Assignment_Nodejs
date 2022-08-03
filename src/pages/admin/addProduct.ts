@@ -76,7 +76,7 @@ const AddProd = {
                               <br>
                               <select class="w-full mr-10 rounded-md h-8 my-4" name="" id="cate">
                                 ${res.map((item: Category) => `
-                                <option value="${item.id}">${item.name}</option>
+                                <option value="${item._id}">${item.name}</option>
                                 `)}
                               </select>
                             </div>
@@ -130,12 +130,12 @@ const AddProd = {
       }
       try {
         const data = await Create(product)
-            alert('Thêm sản phẩm thành công')
-            location.href = "/adminPages"
-          }
-          catch (err) {
-            console.log(err)
-          }
+        alert('Thêm sản phẩm thành công')
+        location.href = "/adminPages"
+      }
+      catch (err) {
+        console.log(err)
+      }
     })
     //Add event upload
     image?.addEventListener('change', async (e) => {

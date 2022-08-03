@@ -1,8 +1,8 @@
 class Category {
     name: String;
-    id: number;
-    constructor(name: string, id: number) {
-        this.id = id
+    _id: number;
+    constructor(name: string, _id: number) {
+        this._id = _id
         this.name = name
     }
 }
