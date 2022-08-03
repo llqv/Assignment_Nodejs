@@ -74,15 +74,15 @@ const HomePage = {
     <div class="grid grid-cols-7 gap-3 mx-10">
     ${res.map((item: Products) => `
     <a href="#">
-        <div class="p-3 drop-shadow-md border rounded-md">
+        <div class="p-3 drop-shadow-md border h-[440px] rounded-md">
           <img class="p-1" src="${item.Image}" alt="">
           <h1>${item.name}</h1>
           <div class="my-3 flex">
             <div class="text-red-500">
-              ${item.saleOffPrice} đ
+            ${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.saleOffPrice)}
             </div>
             <div class="text-gray-400 mx-5 text-sm mt-1">
-              ${item.originalPrice} đ
+            ${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.originalPrice)}
             </div>
           </div>
           <div id="short" class="bg-gray-200 rounded-md p-1">
