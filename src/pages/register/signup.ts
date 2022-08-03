@@ -1,11 +1,11 @@
-// import validator from "validator";
+import validator from "validator";
 import { register } from "../../api/user";
 
 const signup = {
     render: async () => {
         return /*html*/`
             <div class=" bg-gray-300 h-screen flex justify-center items-center">
-                <div class="register w-[800px] h-[500px] flex justify-between">
+                <div class="register w-[800px] h-[550px] flex justify-between">
                     
                     <div class="left-side bg-white w-2/3 px-10 flex items-center">
                         
@@ -46,10 +46,8 @@ const signup = {
                         </div>
                     </div>
                     
-                    <br>
-                    
-                    <div class="right-side bg-gray-200 w-1/3 px-14 flex items-center">
-                        <img src="/image/cellphones-logo.png" class="mt-20" alt="">
+                    <div class="right-side bg-gray-200 w-1/3 flex justify-center items-center">
+                        <img src="/image/cellphones-logo.png" class="w-[250px]" alt="">
                     </div>
                 </div>
             </div>
@@ -58,7 +56,7 @@ const signup = {
     afterRender: async () => {
         const submit = document.querySelector('#btn-submit')
         const formField = [
-            "email", "name", "password"
+            "name", "password", "email"
         ]
         const validate = function () {
             let data: any = {};

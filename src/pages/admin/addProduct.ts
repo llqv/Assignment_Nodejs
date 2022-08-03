@@ -108,6 +108,7 @@ const AddProd = {
     const preview = document.querySelector("#preview")
     const plus = document.querySelector("#plus")
     const image = document.querySelector("#image")
+
     addProduct?.addEventListener('click', async function (e) {
       e.preventDefault
       const name = document.querySelector('#name')?.value

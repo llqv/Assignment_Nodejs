@@ -37,8 +37,8 @@ const signin = {
                         </div>
                     </div>
                     
-                    <div class="right-side bg-gray-200 w-1/3 px-14 flex items-center">
-                        <img src="/image/cellphones-logo.png" class="mt-20" alt="">
+                    <div class="right-side bg-gray-200 w-1/3 flex justify-center items-center">
+                        <img src="/image/cellphones-logo.png" class="w-[250px]" alt="">
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@ const signin = {
     afterRender: async () => {
         const submit = document.querySelector('#btn-submit')
         const formField = [
-            "email", "name", "password"
+            "email", "password"
         ]
         const validate = function() {
             let data: any = {};
