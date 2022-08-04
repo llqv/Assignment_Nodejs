@@ -6,13 +6,13 @@ import { listCategory } from "../../api/category"
 import Category from "../../models/category"
 
 const editProductPage = {
-    render: async (id) => {
-      const res = await Read(id)
-      const data:Products = res.data
+  render: async (id) => {
+    const res = await Read(id)
+    const data: Products = res.data
 
-      const resone = await listCategory()
-      const cate:Category[] = resone.data
-        return /*html*/`
+    const resone = await listCategory()
+    const cate: Category[] = resone.data
+    return /*html*/`
         ${HeaderAdmin.render()}
 <div class="flex mt-3">
 <div class="w-[250px] flex-none">
@@ -38,7 +38,7 @@ ${SidebarAdmin.render()}
                     <svg xmlns="http://www.w3.org/2000/svg" id="plus" class="w-20 h-20 translate-y-28 mx-auto hidden" viewBox="0 0 20 20" fill="currentColor">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
                     </svg>
-                    <img class="w-72 max-h-[200px] my-auto" src="${data.Image}" id="preview" />
+                    <img class="w-72 max-h-[200px] mt-14 my-auto" src="${data.Image}" id="preview" />
                   </div>
               </div>
           </div>
@@ -75,11 +75,10 @@ ${SidebarAdmin.render()}
                 <label for="">Danh mục</label>
                 <br>
                 <select class="w-full mr-10 rounded-md h-8 my-4" name="" id="cate">
-                ${
-                  cate.map((Category, index) => (
-                   `<option key=${index}>${Category.name}</option>`
-                  )) 
-                 }
+                ${cate.map((Category, index) => (
+      `<option key=${index}>${Category.name}</option>`
+    ))
+      }
                 </select> 
                 </div>
                 <div class="">
@@ -104,58 +103,58 @@ ${SidebarAdmin.render()}
 </div>
   </div>
 `
-    },
-    afterRender: (id:any) => {
-      const editProduct = document.querySelector("#btn-edit")
-      const preview = document.querySelector("#preview")
-      const image = document.querySelector("#image")
-      
-    
+  },
+  afterRender: (id: any) => {
+    const editProduct = document.querySelector("#btn-edit")
+    const preview = document.querySelector("#preview")
+    const image = document.querySelector("#image")
 
-      editProduct?.addEventListener('click', async function (e) {
-        e.preventDefault
-        id
-        const name = document.querySelector('#name')?.value
-        const originalPrice = document.querySelector('#price')?.value
-        const saleOffPrice = document.querySelector('#sale')?.value
-        const description = document.querySelector('#longDesc')?.value
-        const shortDescription = document.querySelector('#shortDesc')?.value
-        const feature = document.querySelector('#salientfeatures')?.value
-        const category = document.querySelector('#cate')?.value
-   
-  
-        const product: Products = {
-          id,
-          name: name,
-          Image: preview?.src,
-          originalPrice: originalPrice,
-          saleOffPrice: saleOffPrice,
-          description: description,
-          shortDescription: shortDescription,
-          feature: feature,
-          category: category
-        }
-        try {
-          const data = await Update(product)
-              alert('Cập nhật thành công')
-              location.href = "/adminPages"
-            }
-            catch (err) {
-              console.log(err)
-            }
-        
-      });
- 
-      //Add event upload
-      image?.addEventListener('change', async (e) => {
-        const file = e.target.files[0]
 
-        const res = await UploadFile(file)
-        const data = res.data
-        preview.src = data.url
-  
-      })
-    
-    }
+
+    editProduct?.addEventListener('click', async function (e) {
+      e.preventDefault
+      id
+      const name = document.querySelector('#name')?.value
+      const originalPrice = document.querySelector('#price')?.value
+      const saleOffPrice = document.querySelector('#sale')?.value
+      const description = document.querySelector('#longDesc')?.value
+      const shortDescription = document.querySelector('#shortDesc')?.value
+      const feature = document.querySelector('#salientfeatures')?.value
+      const category = document.querySelector('#cate')?.value
+
+
+      const product: Products = {
+        id,
+        name: name,
+        Image: preview?.src,
+        originalPrice: originalPrice,
+        saleOffPrice: saleOffPrice,
+        description: description,
+        shortDescription: shortDescription,
+        feature: feature,
+        category: category
+      }
+      try {
+        const data = await Update(product)
+        alert('Cập nhật thành công')
+        location.href = "/adminPages"
+      }
+      catch (err) {
+        console.log(err)
+      }
+
+    });
+
+    //Add event upload
+    image?.addEventListener('change', async (e) => {
+      const file = e.target.files[0]
+
+      const res = await UploadFile(file)
+      const data = res.data
+      preview.src = data.url
+
+    })
+
+  }
 }
 export default editProductPage
