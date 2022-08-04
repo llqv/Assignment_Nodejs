@@ -25,7 +25,6 @@ const userSchema = mongoose.Schema(
 
 userSchema.methods = {
     authenticate(password) {
-        console.log("2");
         return this.password === this.encrytPassword(password);
     },
     encrytPassword: (password) => {
