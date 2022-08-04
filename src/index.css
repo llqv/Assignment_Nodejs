@@ -1,20 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-#short{
+
+#short {
     display: -webkit-box;
     max-height: 5.2rem;
-   -webkit-box-orient: vertical;
+    -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
     -webkit-line-clamp: 3;
     line-height: 1.6rem;
+
 }
-#name{
+
+#mota {
     display: -webkit-box;
     max-height: 5.2rem;
-   -webkit-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    -webkit-line-clamp: 3;
+    line-height: 1.6rem;
+    text-align: center;
+
+}
+
+#name {
+    display: -webkit-box;
+    max-height: 5.2rem;
+    -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
