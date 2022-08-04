@@ -28,6 +28,7 @@ export const signup = async (req, res) => {
 };
 export const signin = async (req, res) => {
     try {
+  
         const user = await User.findOne({ email: req.body.email }).exec();
         if (!user) {
             return res.status(400).json({
@@ -40,7 +41,8 @@ export const signin = async (req, res) => {
                 message: "Sai mat khau",
             });
         }
-        const token = jwt.sign({ id: user._id }, "123456", { expiresIn: 60 * 60 });
+
+        const token = jwt.sign({ id: user._id }, "123456", { expiresIn: "1m" });
         return res.status(200).json({
             token,
             user: {
@@ -50,3 +52,5 @@ export const signin = async (req, res) => {
         });
     } catch (error) {}
 };
+
+
