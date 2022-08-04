@@ -3,6 +3,7 @@ import { List, Remove } from "../../api/products";
 import HeaderAdmin from "../../component/headerAdmin"
 import SidebarAdmin from "../../component/sidebarAdmin"
 import Products from "../../models/product";
+import { rerender } from "../../ultilities/rerender";
 
 const listProduct = {
     render: async () => {
@@ -97,7 +98,8 @@ const listProduct = {
                 const action = await Remove(id)
                 if (action) {
                     alert("Xóa sản phẩm thành công !")
-                    location.reload()
+                    // location.reload()
+                    rerender("#app", listProduct)
                 }
             })
         }
