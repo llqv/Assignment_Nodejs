@@ -1,10 +1,10 @@
-import { List } from "../../api/products"
-import Footer from "../../component/footer"
-import Header from "../../component/header"
-import Products from "../../models/product"
-import Product from "../../models/product"
+import { List } from "../../../api/products"
+import Footer from "../../../component/footer"
+import Header from "../../../component/header"
+import Products from "../../../models/product"
+import Product from "../../../models/product"
 
-const HomePage = {
+const Tablet = {
   render: async () => {
     const data = await List()
     const res = data.data
@@ -98,4 +98,4 @@ const HomePage = {
         `
   }
 }
-export default HomePage
+export default Tablet

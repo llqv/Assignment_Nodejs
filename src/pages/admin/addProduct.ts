@@ -32,12 +32,12 @@ const AddProd = {
                             <div class="text-red-500" id="error-img"></div>
                               <div class="relative w-full h-64 mb-6 flex justify-center items-center text-center ">
                                   <input accept=".jpg, .jpeg .png, .svg, .webp" class="relative z-10 opacity-0 h-full w-full cursor-pointer  drop-shadow-md" type="file" name="bgfile" id="image">
-                                  <div class="absolute  right-0 left-0 w-full h-full m-auo flex justify-center drop-shadow-md">
+                                  <div class="absolute  right-0 left-0 w-full h-full m-auto  flex justify-center drop-shadow-md">
                                       <div class="text-center ">
                                         <svg xmlns="http://www.w3.org/2000/svg" id="plus" class="w-20 h-20 translate-y-28 mx-auto" viewBox="0 0 20 20" fill="currentColor">
                                           <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
                                         </svg>
-                                        <img class="w-72 max-h-[200px] my-auto"  id="preview" />
+                                        <img class="w-72 max-h-[200px] mt-14 my-auto"  id="preview" />
                                       </div>
                                   </div>
                               </div>
