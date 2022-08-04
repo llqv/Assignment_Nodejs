@@ -23,5 +23,5 @@ export const Update = (product: Product[]) => {
 }
 //List by cate
 export const Listbycate = (category: number) => {
-    return instance.get(`/products?category=${category}`)
+    return instance.get(`/products?_category=${category}&_limit=20`)
 }

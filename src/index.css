@@ -18,6 +18,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     line-height: 1.6rem;
 }

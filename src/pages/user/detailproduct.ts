@@ -1,4 +1,4 @@
-import { Read } from "../../api/products"
+import { Listbycate, Read } from "../../api/products"
 import Footer from "../../component/footer"
 import Header from "../../component/header"
 import Products from "../../models/product"
@@ -7,21 +7,24 @@ const DetailProduct = {
     render: async (_id: any) => {
         const data = await Read(_id)
         const res: Products = data.data
+        const idCate = res.category
+        console.log(idCate);
+        const listByCate = await Listbycate(idCate)
+        const resCate = listByCate.data
+
+        console.log(resCate);
+
         console.log(res);
 
         return /*html*/ `
         ${Header.render()}
-        <div class="container w-[1000px] mx-auto">
+        <div class="container mx-auto">
             <div class=" mx-auto px-5">
-                <ul class="flex justify-start space-x-5 font-mono capitalize">
-                    <li> <a>trang chủ</a></li>
-                    <li><a>điện thoại</a></li>
-                    <li><a>${res.name}</a></li>
+                <ul class="flex justify-start space-x-5 capitalize">
+                    <a href="/">trang chủ</a>
+                    <a href="/">điện thoại</a>
+                    <a href="/product/${res._id}">${res.name}</a>
                 </ul>
-                <div class="capitalize font-mono ">
-                    <h2>${res.name}</h2>
-                    <hr>
-                </div>
 
             </div>
         </div>
@@ -84,105 +87,38 @@ const DetailProduct = {
 
 
 
-        <div class="font-semibold text-2xl mx-auto w-[1200px] ">
-        <a href="#" >Sản phẩm cùng loại</a>
+        <div class="font-semibold text-2xl mx-auto container ">
+            <a href="#" >Sản phẩm cùng loại</a>
         </div>
-        <div class="flex mx-auto w-[1200px]">
-            <div class="w-[232px] h-[307px] mx-1 rounded-lg  border-2 border-stone-400 mt-5">
-                <img src="https://cdn2.cellphones.com.vn/358x/media/catalog/product/b/u/buds-live_1.jpg" alt=""
-                    class="w-[160px] h-[160px] container mx-auto ">
-                <div class="text-black font-semibold ">
-                    <a href="#">Tai nghe bluetooth Samsung Galaxy Buds Live</a>
-                </div>
-                <div class="flex mt-4">
-                    <div class="mx-1  text-base">
-                        <div class="text-red-600">
-                            <a href="#">1.490.000 đ</a>
-                        </div>
-                    </div>
-                    <div class=" mx-2">
-                        <div class="text-stone-400 text-xs">
-                            <a href="#">4.990.000đ</a>
-                        </div>
-                    </div>
-                </div>
+        <div class="grid grid-cols-6 mx-auto container">
+            ${resCate.map((item: Products) => `
+             <a href="/product/${item._id}">
+             <div class="w-[232px] h-[307px] mx-1 rounded-lg  border-2 border-stone-400 mt-5">
+                 <img src="${item.Image}" alt=""
+                     class="w-[160px] h-[160px] container mx-auto ">
+                 <div class="text-black font-semibold p-3">
+                     ${item.name}   
+                 </div>
+                 <div class="flex mt-4 p-3">
+                     <div class="mx-1  text-base">
+                         <div class="text-red-600">
+                             ${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.saleOffPrice)}
+                         </div>
+                     </div>
+                     <div class=" mx-2">
+                         <div class="text-stone-400 text-xs">
+                             ${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.originalPrice)}
+                         </div>
+                     </div>
+                 </div>
 
-                <a href="#" class="text-center py-1 mx-auto">20 đánh giá</a>
-            </div>
-            <div class="w-[232px] h-[307px] mx-1 rounded-lg object-cover border-2 border-stone-400 mt-5">
-                <img src="https://cdn2.cellphones.com.vn/358x/media/catalog/product/_/0/_0000_uk-galaxy-a53-5g-silicone-cover_1__1.jpg"
-                    alt="" class="w-[160px] h-[160px] container mx-auto ">
-                <div class="text-black font-semibold ">
-                    <a href="#">Ốp lưng Samsung Galaxy A73 2022 Silicone Cover</a>
-                </div>
-                <div class="flex mt-4">
-                    <div class="mx-1  text-base">
-                        <div class="text-red-600">
-                            <a href="#">590.000 đ</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="w-[232px] h-[307px] mx-1 rounded-lg object-cover border-2 border-stone-400 mt-5">
-                <img src="https://cdn2.cellphones.com.vn/358x/media/catalog/product/1/1/11_6_19_1.jpg" alt=""
-                    class="w-[160px] h-[160px] container mx-auto ">
-                <div class="text-black font-semibold ">
-                    <a href="#">Ốp lưng Samsung Galaxy A73 Spring Seine Scene</a>
-                </div>
-                <div class="flex mt-4">
-                    <div class="mx-1  text-base">
-                        <div class="text-red-600">
-                            <a href="#">176.000đ</a>
-                        </div>
-                    </div>
-                    <div class=" mx-2">
-                        <div class="text-stone-400 text-xs">
-                            <a href="#">220.000đ</a>
-                        </div>
-                    </div>
-
-
-                </div>
-
-            </div>
-            <div class="w-[232px] h-[307px] mx-1 rounded-lg object-cover border-2 border-stone-400 mt-5">
-                <img src="https://cdn2.cellphones.com.vn/358x/media/catalog/product/k/i/kinh-cuong-luc-trong-suot-galaxy.jpg"
-                    alt="" class="w-[160px] h-[160px] container mx-auto ">
-                <div class="text-black font-semibold ">
-                    <a href="#">
-                        Dán chống va đập full màn đen Samsung Galaxy A73</a>
-                </div>
-                <div class="flex mt-4">
-                    <div class="mx-1  text-base">
-                        <div class="text-red-600">
-                            <a href="#">120.000 đ</a>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-            </div>
-            <div class="w-[232px] h-[307px] mx-1 rounded-lg object-cover border-2 border-stone-400 mt-5">
-                <img src="https://cdn2.cellphones.com.vn/358x/media/catalog/product/5/_/5_35_56.jpg" alt=""
-                    class="w-[160px] h-[160px] container mx-auto ">
-                <div class="text-black font-semibold ">
-                    <a href="">Ốp lưng Samsung Galaxy A73 OU Silicone</a>
-                </div>
-                <div class="flex mt-4">
-                    <div class="mx-1  text-base">
-                        <div class="text-red-600">
-                            <a href="#">70.000 đ</a>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
+             </div>
+        </a>
+            `).join("")}
+           
         </div>
 
-        <section class="bg-stone-300 max-w-7xl max-h-50	mt-20 rounded-lg mx-auto ">
+        <section class="bg-stone-300 container max-h-50	mt-20 rounded-lg mx-auto ">
             <div class=" text-center text-red-700 text-2xl">
                 <h2>ĐẶC ĐIỂM NỔI BẬT</h2>
             </div>
@@ -191,7 +127,7 @@ const DetailProduct = {
             </div>
 
         </section>
-        <div class="mx-auto w-[1280px] my-10">
+        <div class="mx-auto container my-10">
             ${res.description}
         </div>
         </div>
