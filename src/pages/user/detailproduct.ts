@@ -20,7 +20,7 @@ const DetailProduct = {
         ${Header.render()}
         <div class="container mx-auto">
             <div class=" mx-auto px-5">
-                <ul class="flex justify-start space-x-5 capitalize text-xl">
+                <ul class="flex justify-start space-x-5 capitalize text-xl text-lg font-semibold">
                     <a href="/">trang chủ</a>
                     <a href="/">điện thoại</a>
                     <a href="/product/${res._id}">${res.name}</a>
@@ -61,7 +61,7 @@ const DetailProduct = {
                     </div>
 
 
-                    <div class="text-base w-[882px] h-[157px] mx-4">
+                    <div class="text-base w-[882px] h-[157px] mx-4 mt-4">
                         Mô tả ngắn: ${res.shortDescription}
                     </div>
                     <div class="flex mt-[194px]">
@@ -99,8 +99,8 @@ const DetailProduct = {
         <div class="grid grid-cols-6 mx-auto container">
             ${resCate.map((item: Products) => `
              <a class="mt-4" href="/product/${item._id}">
-             <div class="w-[232px] h-[307px] mx-1 rounded-lg  border-2 border-stone-400 mt-5">
-                 <img src="${item.Image}" alt=""
+             <div class="w-[232px] h-[330px] mx-1 rounded-lg  border-2 border-stone-400 mt-5">
+                 <img class="mt-1" src="${item.Image}" alt=""
                      class="w-[160px] h-[160px] container mx-auto ">
                  <div class="text-black font-semibold p-3">
                      ${item.name}   
@@ -120,10 +120,10 @@ const DetailProduct = {
            
         </div>
 
-        <section class="bg-stone-300 container max-h-50	mt-20 rounded-lg mx-auto ">
-            <div class=" text-center text-red-700 text-2xl">
+            <div class=" text-center text-red-700 text-2xl mt-16">
                 <h2>ĐẶC ĐIỂM NỔI BẬT</h2>
             </div>
+            <section class="bg-stone-300 container max-h-50	mt-20 rounded-lg mx-auto ">
             <div class="mt-3">
                 ${res.feature}
             </div>

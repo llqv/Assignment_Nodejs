@@ -67,11 +67,11 @@ const HomePage = {
     <!-- Navbar -->
 
     <!-- Body -->
-    <div class="container mx-auto text-2xl">
+    <div class="container mx-auto text-center text-2xl mt-12">
       SẢN PHẨM MỚI NHẤT
 
     </div>
-    <div class="grid grid-cols-7 gap-3 mx-10">
+    <div class="grid grid-cols-7 gap-3 mx-10 mt-12">
     ${res.map((item: Products) => `
     <a href="/product/${item._id}">
         <div class="p-3 drop-shadow-md border h-[440px] rounded-md">
