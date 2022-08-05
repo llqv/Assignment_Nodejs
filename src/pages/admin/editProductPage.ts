@@ -4,6 +4,7 @@ import { List, Read, Update } from "../../api/products"
 import Products from "../../models/product"
 import { listCategory } from "../../api/category"
 import Category from "../../models/category"
+import { UploadFile } from "../../api/upload"
 
 const editProductPage = {
   render: async (id) => {

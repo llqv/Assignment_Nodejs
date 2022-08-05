@@ -4,7 +4,7 @@ const Header = {
         <!-- header begin -->
         <div class="h-[64px] bg-[#D70018]">
             <div class="container mx-auto flex justify-start">
-              <a href="#">
+              <a href="/">
                 <img class="w-[200px] -mb-2" src="https://itviec.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBL0gvRFE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--0d8cef178a9a6fb63857d25eaa55766d51abba78/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFJc0FXa0NMQUU9IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--ee4e4854f68df0a745312d63f6c2782b5da346cd/cellphones-logo.png" alt="">
               </a>
               <form class="my-4 mx-10" action="">

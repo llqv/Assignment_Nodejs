@@ -20,7 +20,7 @@ const DetailProduct = {
         ${Header.render()}
         <div class="container mx-auto">
             <div class=" mx-auto px-5">
-                <ul class="flex justify-start space-x-5 capitalize">
+                <ul class="flex justify-start space-x-5 capitalize text-xl">
                     <a href="/">trang chủ</a>
                     <a href="/">điện thoại</a>
                     <a href="/product/${res._id}">${res.name}</a>
@@ -31,7 +31,7 @@ const DetailProduct = {
 
         <div class=" grid grid-cols-4 gap-5 my-5 mx-auto w-[1300px]">
 
-            <div class="mx-auto">
+            <div class="mx-auto mt-4">
                 <img src="${res.Image}"
                     class=" w-[358px] h-[358px] " alt="">
                 <div class="flex mt-7 text-[7px] text-center ">
@@ -41,21 +41,27 @@ const DetailProduct = {
             </div>
             <div>
                 <div class="col-span-3">
-                    <div class="flex">
+                <div class="mt-4 mx-4">
+                    <div class="text-3xl font-bold w-[1000px]">
+                                <p>${res.name}</p>
+                            </div>
                         <div class="mx-1">
+                        <div class="flex mt-4">
                             <div class="text-red-600 text-3xl">
                                 <p>${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(res.saleOffPrice)}</p>
                             </div>
-                        </div>
-                        <div class="mt-3 mx-2">
+                            <div class="mt-3 mx-2">
                             <div class="text-stone-400">
                                 <p>${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(res.originalPrice)}</p>
                             </div>
                         </div>
+                        </div>
+                        
+                        </div>
                     </div>
 
 
-                    <div class="text-base w-[882px] h-[157px]">
+                    <div class="text-base w-[882px] h-[157px] mx-4">
                         Mô tả ngắn: ${res.shortDescription}
                     </div>
                     <div class="flex mt-[194px]">
@@ -92,7 +98,7 @@ const DetailProduct = {
         </div>
         <div class="grid grid-cols-6 mx-auto container">
             ${resCate.map((item: Products) => `
-             <a href="/product/${item._id}">
+             <a class="mt-4" href="/product/${item._id}">
              <div class="w-[232px] h-[307px] mx-1 rounded-lg  border-2 border-stone-400 mt-5">
                  <img src="${item.Image}" alt=""
                      class="w-[160px] h-[160px] container mx-auto ">
@@ -101,14 +107,10 @@ const DetailProduct = {
                  </div>
                  <div class="flex mt-4 p-3">
                      <div class="mx-1  text-base">
-                         <div class="text-red-600">
-                             ${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.saleOffPrice)}
-                         </div>
+                    
                      </div>
                      <div class=" mx-2">
-                         <div class="text-stone-400 text-xs">
-                             ${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.originalPrice)}
-                         </div>
+                      
                      </div>
                  </div>
 

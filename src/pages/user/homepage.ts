@@ -91,7 +91,6 @@ const HomePage = {
         </div>
       </a>
     `).join("")}
-      
     </div>
     <!-- Body -->
     ${Footer.render()}

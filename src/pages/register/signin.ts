@@ -45,11 +45,15 @@ const loginInterface=`
 
 const signin = {
     render: async () => {
-        if (localStorage.getItem("token")) {
-            
+        if (localStorage.getItem("token")) {    
             try {
                 const token = localStorage.getItem("token")
                 const result = await infoUser(token);
+                if (result.data.role == 1) {
+                    window.location.href = "/adminPages";
+                }else{
+                    window.location.href = "/";
+                }
             } catch (error) {
                 localStorage.removeItem("token")
                 return loginInterface

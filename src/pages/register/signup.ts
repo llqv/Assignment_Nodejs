@@ -30,7 +30,7 @@ const signup = {
                                 <div class="text-red-500 text-sm error"></div>
                             </div>
 
-                            <button type="submit" id="btn-submit" class="w-full h-12 text-white text-center bg-[#FF424E] mt-2">Đăng nhập</button>
+                            <button type="submit" id="btn-submit" class="w-full h-12 text-white text-center bg-[#FF424E] mt-2">Đăng ký</button>
 
                             <div class="social text-center mt-10">
                                 <a href="/signin" class="text-blue-400">Đăng Nhập</a> | <span>Hoặc đăng nhập bằng</span>
