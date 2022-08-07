@@ -10,6 +10,10 @@ import HomePage from './pages/user/homepage'
 import editProductPage from './pages/admin/editProductPage'
 import listProduct from './pages/admin/listProduct'
 import AddProd from './pages/admin/addProduct'
+import listCategory from './pages/admin/listCategories'
+import ListCategory from './pages/admin/listCategories'
+import AddCate from './pages/admin/addCate'
+import EditCate from './pages/admin/editCate'
 
 const router = new Navigo('/', { linksSelector: "a" })
 
@@ -51,8 +55,18 @@ router.on({
         const id = data.data.id
         print(editProductPage, id)
     },
+    "/admin/categories/edit/:id": (data: any) => {
+        const id = data.data.id
+        print(EditCate, id)
+    },
     "/adminPages": () => {
         print(listProduct)
+    },
+    "/adminPages/addcate": () => {
+        print(AddCate)
+    },
+    "/adminPages/categories": () => {
+        print(ListCategory)
     },
     "/adminPages/add": () => {
         print(AddProd)
