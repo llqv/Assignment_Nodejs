@@ -1,7 +1,21 @@
+import { infoUser } from "../api/user";
+
 const Header = {
-  render: () => {
+  render: async () => {
+    var avatar = ""
+    if (localStorage.getItem("token")) {    
+      try {
+          const token = localStorage.getItem("token")
+          const result = await infoUser(token);
+          avatar = result.data.avatar
+        }catch{
+          
+
+          }
+        }   
     return /*html*/`
         <!-- header begin -->
+        <img src=${avatar} />
         <div class="h-[64px] bg-[#D70018]">
             <div class="container mx-auto flex justify-start">
               <a href="/">
@@ -39,7 +53,13 @@ const Header = {
            </div>
         <!-- header end -->
         `
+    
+    //   } catch (error) {
+    //     alert("Đăng xuất thành công")
+    //     localStorage.removeItem("token")
+    //     window.location.href="/"
+    // }
+// }
   }
 }
-
 export default Header

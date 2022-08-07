@@ -57,9 +57,7 @@ const signin = {
             } catch (error) {
                 localStorage.removeItem("token")
                 return loginInterface
-            }
-           
-           
+            }  
         }
         return loginInterface;
     },

@@ -11,7 +11,7 @@ const HomePage = {
     console.log(res);
 
     return `
-        ${Header.render()}
+        ${await Header.render()}
         <!-- Navbar -->
     <div class="container mx-auto grid grid-cols-4 my-3">
       <div class="">
