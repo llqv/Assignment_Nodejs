@@ -33,14 +33,9 @@ const signup = {
                             <button type="submit" id="btn-submit" class="w-full h-12 text-white text-center bg-[#FF424E] mt-2">Đăng ký</button>
 
                             <div class="social text-center mt-10">
-                                <a href="/signin" class="text-blue-400">Đăng Nhập</a> | <span>Hoặc đăng nhập bằng</span>
+                                <a href="/signin" class="text-blue-400">Đăng Nhập</a> | <a href="/">Home</a>
                                 <div class="mx-auto w-32 flex justify-between mt-5">
-                                    <a href="">
-                                        <img src="/image/face.png" alt="" class="w-14">
-                                    </a>
-                                    <a href="" >
-                                        <img src="/image/google.png" alt="" class="w-14">
-                                    </a>
+                                   
                                 </div>
                             </div>
                         </div>

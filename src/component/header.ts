@@ -15,7 +15,6 @@ const Header = {
         }   
     return /*html*/`
         <!-- header begin -->
- 
         <div class="h-[64px] bg-[#D70018]">
             <div class="container mx-auto flex justify-start">
               <a href="/">
@@ -44,6 +43,7 @@ const Header = {
                   Giỏ hàng
                 </a>
                 ${
+<<<<<<< HEAD
                        avatar?`
                        <img class="rounded-full border-2 bg-white h-12 w-12 my-1 mx-1 mt-2" src=${avatar} />
                        <button onclick="localStorage.removeItem('token');
@@ -59,6 +59,24 @@ const Header = {
                        </svg>
                      </a>`
                 }
+=======
+                  avatar?`
+                    <img class="rounded-full border-2 bg-white h-12 w-12 my-1 mx-1 mt-2" src=${avatar} />
+                    <button onclick="localStorage.removeItem('token');
+                    window.location.href='/'; alert('Đăng xuất thành công')">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mt-1 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    </button>
+                    `:`
+                    <a class="flex w-[100px] my-2 " href="/signin">
+                      <svg xmlns="http://www.w3.org/2000/svg"  class="h-10 w-10 my-1 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                      </svg>
+                    </a>`
+                }
+                </a>
+>>>>>>> e84fd42b535db324e2e2324cf5f1d92284d607b9
               </div>
             </div>
            </div>

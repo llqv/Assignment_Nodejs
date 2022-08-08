@@ -2,7 +2,7 @@ import validator from "validator";
 import { infoUser, login } from "../../api/user";
 import Header from "../../component/header";
 
-const loginInterface=`
+const loginInterface = `
 <div class=" bg-gray-300 h-screen flex justify-center items-center">
     <div class="login w-[800px] h-[500px] flex justify-between">
         <div class="left-side bg-white w-2/3 px-10 flex items-center">
@@ -23,14 +23,9 @@ const loginInterface=`
                 <button type="submit" id="btn-submit" class="w-full h-12 text-white text-center bg-[#FF424E] mt-2">Đăng nhập</button>
 
                 <div class="social text-center mt-10">
-                    <a href="/signup" class="text-blue-400">Đăng ký</a> | <span>Hoặc đăng nhập bằng</span>
+                    <a href="/signup" class="text-blue-400">Đăng ký</a> | <a href="/">Home</a>
                     <div class="mx-auto w-32 flex justify-between mt-5">
-                        <a href="">
-                            <img src="/image/face.png" alt="" class="w-14">
-                        </a>
-                        <a href="" >
-                            <img src="/image/google.png" alt="" class="w-14">
-                        </a>
+                        
                     </div>
                 </div>
             </div>
@@ -45,19 +40,19 @@ const loginInterface=`
 
 const signin = {
     render: async () => {
-        if (localStorage.getItem("token")) {    
+        if (localStorage.getItem("token")) {
             try {
                 const token = localStorage.getItem("token")
                 const result = await infoUser(token);
                 if (result.data.role == 1) {
                     window.location.href = "/adminPages";
-                }else{
+                } else {
                     window.location.href = "/";
                 }
             } catch (error) {
                 localStorage.removeItem("token")
                 return loginInterface
-            }  
+            }
         }
         return loginInterface;
     },
@@ -107,11 +102,11 @@ const signin = {
                     localStorage.setItem("token", res.data.token)
                     if (localStorage.getItem("token")) {
                         try {
-                            const result = await infoUser(res.data.token);  
-                            alert("Đăng nhập thành công")                       
+                            const result = await infoUser(res.data.token);
+                            alert("Đăng nhập thành công")
                             if (result.data.role == 1) {
                                 window.location.href = "/adminPages";
-                            }else{
+                            } else {
                                 window.location.href = "/";
                             }
                         } catch (error) {
