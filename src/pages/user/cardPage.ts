@@ -3,7 +3,7 @@ import Header from "../../component/header"
 const cardPage = {
     render: async () => {
         return /*html*/`
-        ${Header.render()}
+        ${await Header.render()}
         <!-- card begin -->
     <div class="container mx-auto justify-center p-8">
         <div class="flex justify-between w-[570px] h-[60px] mx-auto pb-8">
