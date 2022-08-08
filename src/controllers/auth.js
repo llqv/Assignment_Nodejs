@@ -10,7 +10,8 @@ export const signup = async (req, res) => {
             });
         }
 
-        const user = await new User(req.body).save();
+        const user = await new User({...req.body, avatar: "https://avatars.dicebear.com/api/big-smile/"+req.body.email+".svg"}).save();
+
         console.log(user);
         return res.status(200).json({
             user: {
@@ -42,7 +43,7 @@ export const signin = async (req, res) => {
             });
         }
 
-        const token = jwt.sign({ id: user._id }, "123456", { expiresIn: "1m" });
+        const token = jwt.sign({ id: user._id }, "123456", { expiresIn: "10m" });
         return res.status(200).json({
             token,
             user: {
