@@ -92,6 +92,7 @@ const signup = {
                 try {
                     const res = await register(data)
                     alert("Đăng kí thành công")
+                    location.href("/signin")
                 } catch (error) {
                     alert(error.message)
                 }
