@@ -69,7 +69,7 @@ const EditCate = {
       console.log(category);
       try {
         const data = await UpdateCate(category)
-        alert('Thêm danh mục thành công')
+        alert('Cập nhật danh mục thành công')
         location.href = "/adminPages/categories"
       }
       catch (err) {
