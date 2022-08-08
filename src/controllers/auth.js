@@ -10,14 +10,14 @@ export const signup = async (req, res) => {
             });
         }
 
-        const user = await new User({...req.body, avatar: "https://avatars.dicebear.com/api/big-smile/"+req.body.email+".svg"}).save();
-
+        const user = await new User(req.body).save();
         console.log(user);
         return res.status(200).json({
             user: {
                 email: user.email,
                 name: user.name,
                 role: user.role,
+            
             },
         });
     } catch (error) {

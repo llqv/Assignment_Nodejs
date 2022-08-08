@@ -29,7 +29,6 @@ export const userByToken = async (req, res, next) => {
             role : user.role,
             id : user._id,
             email: user.email,
-            avatar: user.avatar
         });
     } catch (error) {
         return res.status(400).json({
