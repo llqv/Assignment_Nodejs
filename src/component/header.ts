@@ -64,7 +64,7 @@ const Header = {
            </div>
         <!-- header end -->
         `
-    
+       
     //   } catch (error) {
     //     alert("Đăng xuất thành công")
     //     localStorage.removeItem("token")
@@ -72,5 +72,7 @@ const Header = {
     // }
 // }
   }
+ 
 }
+
 export default Header
