@@ -17,7 +17,7 @@ const DetailProduct = {
         console.log(res);
 
         return /*html*/ `
-        ${Header.render()}
+        ${await Header.render()}
         <div class="container mx-auto">
             <div class=" mx-auto px-5">
                 <ul class="flex justify-start space-x-5 capitalize text-xl text-lg font-semibold">
