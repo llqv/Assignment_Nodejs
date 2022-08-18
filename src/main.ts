@@ -10,22 +10,27 @@ import HomePage from './pages/user/homepage'
 import editProductPage from './pages/admin/editProductPage'
 import listProduct from './pages/admin/listProduct'
 import AddProd from './pages/admin/addProduct'
+import listCategory from './pages/admin/listCategories'
+import ListCategory from './pages/admin/listCategories'
+import AddCate from './pages/admin/addCate'
+import EditCate from './pages/admin/editCate'
 
 const router = new Navigo('/', { linksSelector: "a" })
 
 export type ComponentBase = {
-    render: () => Promise<string>
+    render: (_id: any) => Promise<string>
     afterRender?: () => void
 }
 
-const print = async (component: ComponentBase, param?: any) => {
+
+const print = async (component: ComponentBase, _id: ComponentBase, params?: any) => {
     const element = document.getElementById('app')
     if (element) {
-        element.innerHTML = await component.render()
+        element.innerHTML = await component.render(_id)
     }
 
     if (component.afterRender) {
-        component.afterRender()
+        component.afterRender(_id)
     }
 }
 
@@ -33,11 +38,12 @@ router.on({
     "/": () => {
         print(HomePage)
     },
+    "/product/:id": (data: any) => {
+        const id = data.data.id
+        print(DetailProduct, id)
+    },
     "/card": () => {
         print(cardPage)
-    },
-    "/detailPage": () => {
-        print(DetailProduct)
     },
     "/signin": () => {
         print(signin)
@@ -45,11 +51,22 @@ router.on({
     "/signup": () => {
         print(signup)
     },
-    "/admin/edit/:id": () => {
-        print(editProductPage)
+    "/admin/products/edit/:id": (data: any) => {
+        const id = data.data.id
+        print(editProductPage, id)
+    },
+    "/admin/categories/edit/:id": (data: any) => {
+        const id = data.data.id
+        print(EditCate, id)
     },
     "/adminPages": () => {
         print(listProduct)
+    },
+    "/adminPages/addcate": () => {
+        print(AddCate)
+    },
+    "/adminPages/categories": () => {
+        print(ListCategory)
     },
     "/adminPages/add": () => {
         print(AddProd)

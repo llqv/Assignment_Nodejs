@@ -1,17 +1,17 @@
-import { List } from "../../api/products"
-import Footer from "../../component/footer"
-import Header from "../../component/header"
-import Products from "../../models/product"
-import Product from "../../models/product"
+import { List } from "../../../api/products"
+import Footer from "../../../component/footer"
+import Header from "../../../component/header"
+import Products from "../../../models/product"
+import Product from "../../../models/product"
 
-const HomePage = {
+const Laptop = {
   render: async () => {
     const data = await List()
     const res = data.data
     console.log(res);
 
     return `
-        ${await Header.render()}
+        ${Header.render()}
         <!-- Navbar -->
     <div class="container mx-auto grid grid-cols-4 my-3">
       <div class="">
@@ -67,11 +67,11 @@ const HomePage = {
     <!-- Navbar -->
 
     <!-- Body -->
-    <div class="container mx-auto text-center text-2xl mt-12">
+    <div class="container mx-auto text-2xl">
       SẢN PHẨM MỚI NHẤT
 
     </div>
-    <div class="grid grid-cols-7 gap-3 mx-10 mt-12">
+    <div class="grid grid-cols-7 gap-3 mx-10">
     ${res.map((item: Products) => `
     <a href="/product/${item._id}">
         <div class="p-3 drop-shadow-md border h-[440px] rounded-md">
@@ -91,10 +91,11 @@ const HomePage = {
         </div>
       </a>
     `).join("")}
+      
     </div>
     <!-- Body -->
     ${Footer.render()}
         `
   }
 }
-export default HomePage
+export default Laptop

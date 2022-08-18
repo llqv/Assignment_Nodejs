@@ -4,7 +4,7 @@ import { UploadFile } from "../../api/upload"
 import HeaderAdmin from "../../component/headerAdmin"
 import SidebarAdmin from "../../component/sidebarAdmin"
 import Category from "../../models/category"
-import Product from "../../models/product"
+import Products from "../../models/product"
 
 const AddProd = {
   render: async () => {
@@ -32,12 +32,12 @@ const AddProd = {
                             <div class="text-red-500" id="error-img"></div>
                               <div class="relative w-full h-64 mb-6 flex justify-center items-center text-center ">
                                   <input accept=".jpg, .jpeg .png, .svg, .webp" class="relative z-10 opacity-0 h-full w-full cursor-pointer  drop-shadow-md" type="file" name="bgfile" id="image">
-                                  <div class="absolute  right-0 left-0 w-full h-full m-auo flex justify-center drop-shadow-md">
+                                  <div class="absolute  right-0 left-0 w-full h-full m-auto  flex justify-center drop-shadow-md">
                                       <div class="text-center ">
                                         <svg xmlns="http://www.w3.org/2000/svg" id="plus" class="w-20 h-20 translate-y-28 mx-auto" viewBox="0 0 20 20" fill="currentColor">
                                           <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
                                         </svg>
-                                        <img class="w-72 max-h-[200px] my-auto"  id="preview" />
+                                        <img class="w-72 max-h-[200px] mt-14 my-auto"  id="preview" />
                                       </div>
                                   </div>
                               </div>
@@ -76,7 +76,7 @@ const AddProd = {
                               <br>
                               <select class="w-full mr-10 rounded-md h-8 my-4" name="" id="cate">
                                 ${res.map((item: Category) => `
-                                <option>${item.name}</option>
+                                <option value="${item._id}">${item.name}</option>
                                 `)}
                               </select>
                             </div>
@@ -105,11 +105,10 @@ const AddProd = {
   },
   afterRender: () => {
     const addProduct = document.querySelector("#btn-add")
-    const vldImg: any = document.querySelector("#error-img")
     const preview = document.querySelector("#preview")
     const plus = document.querySelector("#plus")
-
     const image = document.querySelector("#image")
+
     addProduct?.addEventListener('click', async function (e) {
       e.preventDefault
       const name = document.querySelector('#name')?.value
@@ -120,7 +119,7 @@ const AddProd = {
       const feature = document.querySelector('#salientfeatures')?.value
       const category = document.querySelector('#cate')?.value
 
-      const product: Product = {
+      const product: Products = {
         name: name,
         Image: preview?.src,
         originalPrice: originalPrice,
@@ -130,19 +129,26 @@ const AddProd = {
         feature: feature,
         category: category
       }
+<<<<<<< HEAD
       console.log(product);
       const complete = await Create(product)
       if (complete) {
         alert("Thêm sản phẩm thành công")
         location.href = "/adminPages"
+=======
+      try {
+        const data = await Create(product)
+        alert('Thêm sản phẩm thành công')
+        location.href = "/adminPages"
       }
-
-
+      catch (err) {
+        console.log(err)
+>>>>>>> 10d5df6244b1119740998c97b212c37af37e9127
+      }
     })
     //Add event upload
     image?.addEventListener('change', async (e) => {
       const file = e.target.files[0]
-      console.log(file);
       plus.classList = "hidden"
       const res = await UploadFile(file)
       const data = res.data

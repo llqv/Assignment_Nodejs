@@ -9,15 +9,19 @@ export const List = () => {
 export const Read = (id: any) => {
     return instance.get(`/products/${id}`)
 }
+//Remove
+export const Remove = (id: any) => {
+    return instance.delete(`/products/${id}`)
+}
 //add
 export const Create = (product: Product[]) => {
     return instance.post(`/products/`, product)
 }
 //update
 export const Update = (product: Product[]) => {
-    return instance.put(`/products/${product.id}`, product)
+    return instance.patch(`/products/${product.id}`, product)
 }
 //List by cate
 export const Listbycate = (category: number) => {
-    return instance.get(`/products?category=${category}`)
+    return instance.get(`/products?_category=${category}&_limit=20`)
 }
