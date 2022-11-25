@@ -14,7 +14,7 @@ const listProduct = {
         const rescate = cate.data
         console.log(res);
 
-        if (localStorage.getItem("token")) {    
+        if (localStorage.getItem("token")) {
             try {
                 const token = localStorage.getItem("token")
                 const result = await infoUser(token);
@@ -144,19 +144,19 @@ const listProduct = {
             } catch (error) {
                 alert("Bạn không có quyền truy cập")
                 localStorage.removeItem("token")
-                window.location.href="/signin"
+                window.location.href = "/signin"
             }
-           
-           
+
+
         }
-        else{
+        else {
             alert("Bạn không có quyền truy cập")
             localStorage.removeItem("token")
-            window.location.href="/signin"
+            window.location.href = "/signin"
         }
         return ``
 
-       
+
     },
     afterRender: () => {
         const btns = document.querySelectorAll('table .btn-remove')
@@ -173,7 +173,6 @@ const listProduct = {
                 }
             })
         }
->>>>>>> 10d5df6244b1119740998c97b212c37af37e9127
 
     }
 }

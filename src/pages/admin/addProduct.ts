@@ -129,13 +129,7 @@ const AddProd = {
         feature: feature,
         category: category
       }
-<<<<<<< HEAD
-      console.log(product);
-      const complete = await Create(product)
-      if (complete) {
-        alert("Thêm sản phẩm thành công")
-        location.href = "/adminPages"
-=======
+
       try {
         const data = await Create(product)
         alert('Thêm sản phẩm thành công')
@@ -143,7 +137,6 @@ const AddProd = {
       }
       catch (err) {
         console.log(err)
->>>>>>> 10d5df6244b1119740998c97b212c37af37e9127
       }
     })
     //Add event upload
